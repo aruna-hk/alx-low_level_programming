@@ -1,9 +1,19 @@
 #include<stdio.h>
+/**
+* main - print size of data types
+* Return: 0
+*/
 int main(void)
 {
-char size_c[]={'char','int','long int','long long int','float'}
-int i;
-for(i=0;i<=sizeof(size_c-1);i++)
-	printf("size of {i}=sizeof(i)\n");
+char a;
+int b;
+long int c;
+long long int d;
+float e;
+printf("size of a char: %d", sizeof(a));
+printf("size of an int: %d", sizeof(b));
+printf("size of a long int: %d", sizeof(c));
+printf("size of a long long int: %d", sizeof(d));
+printf("size of a float: %d", sizeof(e));
 return (0);
 }
