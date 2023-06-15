@@ -1,6 +1,7 @@
 #include<stdio.h>
 /**
-*starting to code this is prinf library function
+*main - print function
+*Return 0
 */
 int main(void)
 {
