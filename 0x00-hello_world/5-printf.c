@@ -1,6 +1,9 @@
 #include<stdio.h>
-int main()
+/*
+*starting to code this is prinf library function
+*/
+int main(void)
 {
-printf("with proper grammer, but the output is a piece of art,");
+printf("with proper grammar, but the outcome is a piece of art,");
 return (0);
 }
