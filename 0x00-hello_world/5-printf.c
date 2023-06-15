@@ -1,7 +1,7 @@
 #include<stdio.h>
 /**
-*main - print function
-*Return 0
+* main - print function in main func
+* Return: 0
 */
 int main(void)
 {
