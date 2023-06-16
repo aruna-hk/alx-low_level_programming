@@ -1,17 +1,17 @@
 #include <stdio.h>
 /**
- * main - DECIMALS
- * Description: display numbers 0-9 WITH ANSII CODE
+ * main - COMBINATION
+ * Description: combination of two digits
  * Return: 0
 */
 int main(void)
 {
 	int i = 48;
-	int j ;
+	int j;
 
 	while (i < 58)
 	{
-		for (j = 48;j < 58;j++ )
+		for (j = 48; j < 58; j++)
 		{
 			if (j == i)
 			{
