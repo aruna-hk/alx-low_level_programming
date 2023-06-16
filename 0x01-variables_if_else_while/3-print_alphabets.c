@@ -1,15 +1,15 @@
 #include <stdio.h>
-/*
-* main -entry point
-* Description: 'prints lower and upper case alhabets
-* Return: 0
+/**
+ * main - prints lowercase and upper alphabets
+ * Description: prints lower and upper case letter
+ * Return: 0
 */
 int main(void)
 {
 	int i = 97;
 	int j = 65;
 
-	while (i < 122)
+	while (i < 123)
 	{
 		putchar(i);
 		i++;
