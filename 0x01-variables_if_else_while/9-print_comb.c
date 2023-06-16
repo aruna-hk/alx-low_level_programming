@@ -1,16 +1,18 @@
 #include <stdio.h>
 /**
- * main - prints lowercase alphabets
- * Description: prints lower case letter
+ * main - DECIMAL
+ * Description: pRINT 0-9 SEPARATED BY ,
  * Return: 0
 */
 int main(void)
 {
-	int i;
+	int i = 48;
 
-	for (i = 97 ; i < 123 ; i++)
+	while (i < 58)
 	{
 		putchar(i);
+		putchar(44);
+		i++;
 	}
 	putchar('\n');
 	return (0);
