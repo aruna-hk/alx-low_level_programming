@@ -3,7 +3,7 @@
 #include <stdio.h>
 /**
 * main - check randomly gen number
-* return: 0
+* Return: 0
 */
 int main(void)
 {
