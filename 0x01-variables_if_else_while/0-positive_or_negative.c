@@ -2,8 +2,8 @@
 #include <time.h>
 #include <stdio.h>
 /*
-*main - check randomly gen number
-*return: 0
+* main - check randomly gen number
+* return: 0
 */
 int main(void)
 {
