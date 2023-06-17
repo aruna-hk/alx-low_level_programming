@@ -11,9 +11,9 @@ int main(void)
 
 	while (i < 57)
 	{
-		for (j = 48; j < 58; j++)
+		for (j = 49; j < 58; j++)
 		{
-			if (j == i || j == i-1)
+			if (j == i)
 			{
 				continue;
 			}
