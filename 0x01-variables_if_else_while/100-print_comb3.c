@@ -1,19 +1,22 @@
-#include <stdio.h>
+#include<stdio.h>
 /**
- * main - COMBINATION
- * Description: combination of two digits
- * Return: 0
+* main - combination of numbers without repetition
+* Description: PRINT COMBINATION OF 0-9 USING ANSCII
+* Return:0
 */
 int main(void)
 {
+	/*
+	*AMSII
+	*/
 	int i = 48;
 	int j;
 
-	while (i < 57)
+	while (i <= 57)
 	{
-		for (j = 49; j < 58; j++)
+		for (j = 48 ; j <= 57 ; j++)
 		{
-			if (j == i)
+			if (i == j || i > j)
 			{
 				continue;
 			}
@@ -30,3 +33,4 @@ int main(void)
 	putchar('\n');
 	return (0);
 }
+
