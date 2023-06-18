@@ -10,7 +10,8 @@ int main(void)
 	*AnSII
 	*/
 	int i = 48;
-	int k,j;
+	int k;
+	int j;
 
 	while (i <= 57)
 	{
@@ -21,9 +22,9 @@ int main(void)
 				continue;
 			}
 			else
-			for (k = 49;k <= 57;k++)
+			for (k = 49; k <= 57; k++)
 			{
- 				if(k > j)
+				if (k > j)
 				{
 					putchar(i);
 					putchar(j);
@@ -37,7 +38,7 @@ int main(void)
 				}
 				else
 					continue;
-	         	}
+			}
 
 		}
 		i++;
