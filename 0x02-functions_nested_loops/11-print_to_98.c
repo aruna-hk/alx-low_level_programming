@@ -29,7 +29,7 @@ void print_to_98(int n)
 			printf("%d", i);
 			if (i == 98)
 				continue;
-			_putchar(',')
+			_putchar(',');
 			_putchar(' ');
 			if (i == 98)
 				_putchar('\n');
