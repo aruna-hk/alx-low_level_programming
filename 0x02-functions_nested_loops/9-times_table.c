@@ -9,7 +9,7 @@ void times_table(void)
 	{
 		for (b = 0; b <= 9; b++)
 		{
-			printf("%2d", a * b);
+			printf("%d", a * b);
 			if (b == 9)
 				continue;
 			printf(", ");
