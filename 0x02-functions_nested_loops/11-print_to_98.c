@@ -45,5 +45,5 @@ void print_to_98(int n)
 		}
 	}
 	else
-		printf("%d\n");
+		printf("%d\n", n);
 }
