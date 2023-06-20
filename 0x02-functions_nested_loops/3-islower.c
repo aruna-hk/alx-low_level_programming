@@ -5,6 +5,8 @@
 */
 int main(void)
 {
+	int ret;
+
 	ret = _islower(int c);
 
 	if (ret == 1)
