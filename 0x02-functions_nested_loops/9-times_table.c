@@ -12,7 +12,7 @@ void times_table(void)
 			printf("%d", a * b);
 			if (b == 9)
 				continue;
-			else if (a == 0 || a == 2)
+			else if (a == 0 || a == 1||b == 0)
 			{
 				printf(",  ");
 				continue;
