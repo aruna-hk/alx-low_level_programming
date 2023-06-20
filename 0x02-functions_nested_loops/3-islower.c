@@ -1,13 +1,14 @@
 #include "main.h"
 /**
-* _islower - lowecase
-* @c: c -anscii
-* Return: 0
+* Main - lowecase
+* Return: 1 if tue 0 if false
 */
-int _islower(int c)
+int main(void)
 {
-	if (_islower(int c) == true)
-		return (0);
+	ret = _islower(int c);
+
+	if (ret == 1)
+		return (1);
 	else
 		return (0);
 }
