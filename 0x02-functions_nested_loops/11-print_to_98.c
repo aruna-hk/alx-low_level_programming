@@ -1,3 +1,6 @@
+#include "main.h"
+#include <stdio.h>
+
 /**
 * print_to_98 - iterate till 98
 * @n: takes number n away from 98
