@@ -4,6 +4,7 @@
 void jack_bauer(void)
 { 
 	int i;
+	int j;
 
 	for (i=48;i<==53;i++)
 	{
