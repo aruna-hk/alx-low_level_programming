@@ -14,12 +14,12 @@ int print_last_digit(int n)
 	if (n < 0)
 	{
 		last = last * -1;
-		lastlast = printf("%d%d", last, last)
+		lastlast = printf("%d%d", last, last);
 		return (lastlast);
 	}
 	else if (n > 0)
 	{
-		lastlast = printf("%d%d", last, last)
+		lastlast = printf("%d%d", last, last);
 		return (last);
 	}
 	else
