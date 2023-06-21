@@ -14,9 +14,9 @@ void jack_bauer(void)
 	{
 		for (j = 48; j <= 51; j++)
 		{
-			for ( m = 48;m <= 53; m++)
+			for (m = 48; m <= 53; m++)
 			{
-				for (k = 48; k <= 57;k++)
+				for (k = 48; k <= 57; k++)
 				{
 					_putchar(i);
 					_putchar(j);
@@ -26,6 +26,6 @@ void jack_bauer(void)
 					_putchar('\n');
 				}
 			}
-		} 
+		}
 	}
 }
