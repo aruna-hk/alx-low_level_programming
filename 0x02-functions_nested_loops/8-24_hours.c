@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
 * jack_bauer-time counter
@@ -8,19 +7,25 @@ void jack_bauer(void)
 {
 	int i;
 	int j;
+	int m;
+	int k;
 
-	for (i = 0; i <= 23; i++)
+	for (i = 48; i <= 50; i++)
 	{
-		for (j = 0; j <= 49; j++)
+		for (j = 48; j <= 51; j++)
 		{
-			if (i < 10 && j < 10)
-				printf("0%d:0%d\n", i, j);
-			else if (i < 10)
-				printf("0%d:%d\n", i, j);
-			else if (j < 10)
-				printf("%d:0%d\n", i, j);
-			else
-				printf("%d:%d", i, j);
-		}
+			for ( m = 48;m <= 53; m++)
+			{
+				for (k = 48; k <= 57;k++)
+				{
+					_putchar(i);
+					_putchar(j);
+					_putchar(58);
+					_putchar(m);
+					_putchar(k);
+					_putchar('\n');
+				}
+			}
+		} 
 	}
 }
