@@ -9,16 +9,19 @@ int print_last_digit(int n)
 {
 	int last = n % 10;
 	int last1;
+	int dd;
 
 	if (n < 0)
 	{
-		last1 = (last * -1) * 10;
-		return ((last1 + last));
+		last1 = -last * 10;
+		dd = last1 + last;
+		return (dd);
 	}
 	else if (n > 0)
 	{
 		last1 = last * 10;
-		return ((last1 + last));
+		dd = last1 + last;
+		return (dd);
 	}
 	else
 	{
