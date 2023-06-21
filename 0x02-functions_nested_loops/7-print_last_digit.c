@@ -8,12 +8,12 @@ int print_last_digit(int n)
 {
 	if (n < 0)
 	{
-		_putchar('n');
+		printf("%d", n);
 		return ((n % 10) * -1);
 	}
 	else if (n > 0)
 	{
-		_putchar('n');
+		printf("%d", n);
 		return (n % 10);
 	}
 	else
