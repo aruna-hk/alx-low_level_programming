@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 /**
 * main - entry
 * Return: sum of multiples of 3 and 5
@@ -14,5 +16,5 @@ int main(void)
 		else 
 			continue;
 	}
-	return (sum);
+	return (sumu;
 }
