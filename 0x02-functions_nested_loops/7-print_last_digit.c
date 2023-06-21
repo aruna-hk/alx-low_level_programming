@@ -1,4 +1,3 @@
-#include "main.h"
 /**
 * print_last_digit - check sign of number
 * @n: take number
@@ -6,5 +5,10 @@
 */
 int print_last_digit(int n)
 {
-	return (n % 10);
+	if (n < 0)
+		return ((n % 10) * -1)
+	else if (n > 0)
+		return (n % 10);
+	else
+		return (0);
 }
