@@ -1,3 +1,6 @@
+#include "main.h"
+#include <stdio.h>
+
 /**
 * print_last_digit - check sign of number
 * @n: take number
