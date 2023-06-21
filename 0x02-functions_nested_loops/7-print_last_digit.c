@@ -9,12 +9,12 @@ int print_last_digit(int n)
 {
 	if (n < 0)
 	{
-		printf("%d", n);
+		putchar(n);
 		return ((n % 10) * -1);
 	}
 	else if (n > 0)
 	{
-		printf("%d", n);
+		putchar(n);
 		return (n % 10);
 	}
 	else
