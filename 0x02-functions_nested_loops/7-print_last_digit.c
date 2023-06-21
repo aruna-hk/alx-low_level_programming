@@ -1,5 +1,3 @@
-#include "main.h"
-#include <stdio.h>
 /**
 * print_last_digit - check sign of number
 * @n: take number
@@ -7,15 +5,19 @@
 */
 int print_last_digit(int n)
 {
+	int last = n % 10;
+	int lastlast;
+
 	if (n < 0)
 	{
-		putchar(n);
-		return ((n % 10) * -1);
+		last = last * -1;
+		lastlast = printf("%d%d", last, last)
+		return (lastlast);
 	}
 	else if (n > 0)
 	{
-		putchar(n);
-		return (n % 10);
+		lastlast = printf("%d%d", last, last)
+		return (last);
 	}
 	else
 	{
