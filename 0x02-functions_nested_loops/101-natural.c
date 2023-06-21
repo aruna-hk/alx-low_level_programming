@@ -1,12 +1,13 @@
 /**
 * main - entry
-* @i: int arg
 * Return: sum of multiples of 3 and 5
 */
-int main(int i)
+int main(void)
 {
 	int sum;
 	int i;
+	int k;
+	int m;
 
 	sum = 0;
 	for (i = 0; i <= 1024; i++)
