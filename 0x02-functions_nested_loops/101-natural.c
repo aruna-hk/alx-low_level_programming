@@ -10,14 +10,15 @@ int main(void)
 	int m;
 
 	sum = 0;
-	for (i = 0; i <= 1024; i++)
+	for (i = 0; i < 1024; i++)
 	{
 		m = i % 3;
 		k = i % 5;
-		if (m == 0 || k == 0)
-		{
+		if (m == 0 || k == 0)	
 			sum = sum + i;
-		}
+		else 
+			continue;
+	}
 	}
 	return (sum);
 }
