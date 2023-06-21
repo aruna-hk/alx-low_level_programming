@@ -5,10 +5,10 @@
 */
 int main(void)
 {
-	signed long int i = 1;
-	signed long int i_2 = 2;
-	signed long int a;
-	signed long int next;
+	signed long long int i = 1;
+	signed long long int i_2 = 2;
+	signed long long int a;
+	signed long long int next;
 	int counter = 0;
 
 	printf("%ld, %ld, ", i, i_2);
