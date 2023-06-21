@@ -16,5 +16,5 @@ int main(void)
 		else 
 			continue;
 	}
-	return (sumu;
+	return (sum);
 }
