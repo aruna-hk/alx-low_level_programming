@@ -10,7 +10,7 @@ int main(void)
 	signed long int a;
 	signed long int next;
 
-	printf("%ld,%ld, ", i, i_2);
+	printf("%ld, %ld, ", i, i_2);
 	for (a = 3; a <= 50; a++)
 	{
 		next = i + i_2;
