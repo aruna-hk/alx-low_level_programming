@@ -13,7 +13,7 @@ void jack_bauer(void)
 	{
 		for (j = 0; j <= 49; j++)
 		{
-			printf("%d:%d", i j);
+			printf("%d:%d", i, j);
 		}
 	}
 }
