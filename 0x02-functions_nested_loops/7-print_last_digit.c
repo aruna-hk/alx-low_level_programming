@@ -10,12 +10,13 @@ int print_last_digit(int n)
 {
 	int last = n % 10;
 	int lastlast;
+	int last1;
 
 	if (n < 0)
 	{	
 		last1 = last * -1;
 		last1 = printf("%d%d", last, last);
-		return (last1;
+		return (last1);
 	}
 	else if (n > 0)
 	{
