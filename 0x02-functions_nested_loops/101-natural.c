@@ -13,7 +13,7 @@ int main(void)
 	for (i = 0; i <= 1024; i++)
 	{
 		m = i % 3;
-		k = i % 5
+		k = i % 5;
 		if (m == 0 || k == 0)
 		{
 			sum = sum + i;
