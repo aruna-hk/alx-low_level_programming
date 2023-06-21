@@ -2,7 +2,7 @@
 * main - entry
 * Return: sum of multiples of 3 and 5
 */
-int main(void)
+int multiples_3_5(int r)
 {
 	int sum;
 	int i;
