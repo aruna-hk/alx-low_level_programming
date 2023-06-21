@@ -17,7 +17,7 @@ int main(void)
 		next = i + i_2;
 		printf("%ld", next);
 		counter = counter + 1;
-		if ( a== 98)
+		if ( counter == 98)
 			break;
 		printf(", ");
 		i = i_2;
