@@ -5,18 +5,21 @@
 */
 int main(void)
 {
-	signed int i = 1;
-	signed int i_2 = 2;
-	signed int a;
-	signed int next;
+	signed long int i = 1;
+	signed long int i_2 = 2;
+	signed long int a;
+	signed long int next;
 
-	printf("%d,%d, ", i, i_2);
+	printf("%ld,%ld, ", i, i_2);
 	for (a = 3; a <= 50; a++)
 	{
 		next = i + i_2;
-		printf("%d,", next);
-		i_2 = next;
+		printf("%ld", next);
+		if (a != 50)
+			printf(", ");
 		i = i_2;
+		i_2 = next;
 	}
+	printf("\n");
 	return (0);
 }
