@@ -13,7 +13,7 @@ int print_last_digit(int n)
 
 	if (n < 0)
 	{	
-		last1 = last * -1
+		last1 = last * -1;
 		last1 = printf("%d%d", last, last);
 		return (last1;
 	}
