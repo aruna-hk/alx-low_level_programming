@@ -10,15 +10,15 @@ int print_last_digit(int n)
 	int last = n % 10;
 	int last1;
 
-	last1 = last * 10;
-
 	if (n < 0)
 	{
-		return ((last1 * -1) + last);
+		last1 = (last * -1) * 10;
+		return ((last1 + last));
 	}
 	else if (n > 0)
 	{
-		return (last1 + last);
+		last1 = last * 10;
+		return ((last1 + last));
 	}
 	else
 	{
