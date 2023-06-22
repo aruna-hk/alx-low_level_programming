@@ -5,9 +5,9 @@
 * @c ascii: value
 * Return: 1 if c is caps else 0
 */
-int _isupper(int c)
+int _isupper(int v)
 {
-	if (c >= 65 && c <= 90)
+	if (v >= 65 && v <= 90)
 		return (1);
 	else
 		return (0);
