@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 /**
 * print_diagonal - provided length
 * @n: lengt param
@@ -7,22 +7,28 @@ void print_diagonal(int n)
 {
 	int i;
 	int j;
+	int l;
 
-	if (n == 0)
-		_putchar(36);
+	if (n <= 0)
+		putchar('\n');
 	else
-		for (i = 0; i < n; i++)
+		for (i = 1; i < n; i++)
 		{
-			for (j = 1; j <= i; j++)
-			{
-				if (i > j)
-					_putchar(32);
-				else
-				{
-					_putchar(47);
-					_putchar(36);
-				}
+			for (l = 1; l <= n - 1; l++)
+		 	{
+				putchar(' ');
+				for (j = 1; j <= i; j++)
+					putchar('#');
 			}
+			
 			putchar('\n');
 		}
+}
+int main()
+{
+	print_diagonal(0);
+	print_diagonal(5);
+	print_diagonal(10);
+	print_diagonal(15);
+	return 0;
 }
