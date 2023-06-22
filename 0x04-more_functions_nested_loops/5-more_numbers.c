@@ -1,14 +1,13 @@
-#include "main.h"
+//#include "main.h"
+# include <stdio.h>
 /**
 * more_numbers -prints o1-14 10 tims
 */
-void more_numbers(void)
+int main(void)
 {
 	int i;
 	int j;
-	int k;
 	int m;
-	int v;
 
 	for (i = 0; i <= 10; i++)
 	{
@@ -16,16 +15,13 @@ void more_numbers(void)
 		{
 			if (j == 57)
 			{
-				m = 49;
-				for (k = 48; k <= 52; k++)
-				{
-					_putchar(m);
-					_putchar(k);
-				}
+				m = 1;
+				continue;
 			}
-			else
-				_putchar(j);
+			putchar(j + m);
 		}
-		_putchar('\n');
+		putchar('\n');
 	}
+	putchar('\n');
+	return 0;
 }
