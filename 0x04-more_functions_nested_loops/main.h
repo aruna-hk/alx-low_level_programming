@@ -1,4 +1,5 @@
 int _isdigit(int c);
+int mul(int x, int y);
 int _isupper(int c);
 int _putchar(char c);
 void print_alphabet(void);
