@@ -1,6 +1,6 @@
 #include "main.h"
 /**
-* more numbers -prints o1-14 10 tims
+* more_numbers -prints o1-14 10 tims
 */
 void more_numbers(void)
 {
@@ -12,7 +12,7 @@ void more_numbers(void)
 
 	for (i = 0; i <= 10; i++)
 	{
-		for (	j = 48; j <= 57 ; j++)
+		for (j = 48; j <= 57 ; j++)
 		{
 			if (j == 57)
 			{
