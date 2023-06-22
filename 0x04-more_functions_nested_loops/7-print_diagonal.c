@@ -2,6 +2,7 @@
 /**
 * print_diagonal - provided length
 * @n: lengt param
+* Return: null
 */
 void print_diagonal(int n)
 {

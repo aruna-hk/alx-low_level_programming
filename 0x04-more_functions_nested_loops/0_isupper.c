@@ -2,7 +2,7 @@
 
 /**
 * _isupper - check if ASCII value passed in is uppercase
-* @c ascii: value
+* @c: ASCII value
 * Return: 1 if c is caps else 0
 */
 int _isupper(int c)
