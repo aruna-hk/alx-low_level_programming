@@ -1,4 +1,5 @@
 int _isdigit(int c);
+void print_most_numbers
 void print_numbers(void);
 int mul(int x, int y);
 int _isupper(int c);
