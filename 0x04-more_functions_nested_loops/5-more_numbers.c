@@ -7,21 +7,26 @@ int main(void)
 {
 	int i;
 	int j;
-	int m;
 
-	for (i = 0; i <= 10; i++)
+	for (i = 0; i <= 14; i++)
+
 	{
-		for (j = 48; j <= 57 ; j++)
-		{
-			if (j == 57)
+		if (i <= 9)
+			for (j = 48; j < 53; j++)
 			{
-				m = 1;
-				continue;
+				putchar(j)
 			}
-			putchar(j + m);
+		else
+		{
+			for (m = 1; m < 5; m++)
+			{
+				for (v =48 ; v < 48;v++)
+					putchar(m + v);
+				break;
+			}
 		}
-		putchar('\n');
-	}
+				
+			
 	putchar('\n');
 	return 0;
 }
