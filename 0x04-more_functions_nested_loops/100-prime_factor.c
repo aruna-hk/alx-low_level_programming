@@ -1,23 +1,21 @@
 #include <stdio.h>
-#include "main.h"
 /**
 * bigprime - biggest prime number
 * @n: int arg
 * Return: value prime-number largest
 */
-int bigprime(int n)
+int bigprime(unsigned long int n)
 {
-	int start_at = 2;
-	int i;
+	long int i;
 
 	for (i = 2; i <= n; i++)
 	{
 		if (n % i == 0)
 			n = n / i;
 		else
-			start_at++;
+			continue;
 	}
-	return (i);
+	return (i - 1);
 }
 /**
 * main - entry point
@@ -25,9 +23,9 @@ int bigprime(int n)
 */
 int main(void)
 {
-	int n = 612852475143;
-	int l = bigprime(n);
+	unsigned long int n = 612852475143;
+	unsigned long int l = bigprime(n);
 
-	printf("%d\n", l);
+	printf("%ld\n", l);
 	return (0);
 }
