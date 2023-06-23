@@ -57,57 +57,31 @@ int convert_day(int month,  int day)
 * @year: year
 * Return: void
 */
-
 void print_remaining_days(int month, int day, int year)
 {
-	if (year % 4 == 0 && year % 100 != 0)
-	{
-		if (month == 2 && day > 60)
-		{
-			printf("Invalid date: %02d/%02d/%04d\n", month, day - 31, year);
-		}
-		else
-		{
-			printf("Day of the year: %d\n", day);
-			printf("Remaining days: %d\n", 366 - day);
-		}
-	}
-	else if (year % 4 == 0 && year % 100 == 0)
-	{
-		if (year % 400 == 0)
-		{
-			if (month == 2 && day > 60)
-				printf("Invalid date: %02d/%02d/%04d\n", month, day - 31, year);
-			else
-			{
-				day = day + 1;
-				printf("Day of the year: %d\n", day);
-				printf("Remaining days: %d\n", 366 - day);
-			}
-		}
-		else
-		{
-			if (month == 2 && day > 59)
-				printf("Invalid date: %02d/%02d/%04d\n", month, day - 31, year);
-			else
-			{
-				printf("Day of the year: %d\n", day);
-				printf("Remaining days: %d\n", 366 - day);
-			}
-		}
-	}
-	else
-	{
-		if (month == 2)
-			printf("Invalid date: %02d/%02d/%04d\n", month, day - 31, year);
-		else
-		{
-			printf("Day of the year: %d\n", day);
-			printf("Remaining days: %d\n", 366 - day);
-		}
-	}
+if ((year % 4 == 0 && year % 100 != 0) || (year % 100 == 0 && year % 400 == 0))
+{
+        if (month == 2 && day > 60)
+        {
+                printf("Invalid date: %02d/%02d/%04d\n", month, day - 31, year);
+        }
+        else
+        {
+                printf("Day of the year: %d\n", day);
+                printf("Remaining days: %d\n", 366 - day);
+        }
 }
-
+else
+{
+        if (month == 2 && day > 59)
+                printf("Invalid date: %02d/%02d/%04d\n", month, day - 31, year);
+        else
+        {
+                printf("Day of the year: %d\n", day);
+                printf("Remaining days: %d\n", 366 - day);
+        }
+}
+}           
 /**
 * main - takes a date and prints how many days are left in the year, taking
 * leap years into account
@@ -120,8 +94,8 @@ int main(void)
 	int day;
 	int year;
 
-	month = 02;
-	day = 28;
+	month = -1;
+	day = 2;
 	year = 2024;
 	printf("Date: %02d/%02d/%04d\n", month, day, year);
 	day = convert_day(month, day);
