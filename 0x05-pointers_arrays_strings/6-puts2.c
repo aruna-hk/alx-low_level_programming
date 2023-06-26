@@ -1,23 +1,24 @@
-#include <stdio.h>
+#include "main.h"
 /**
-* print_rev - print arg in reverse
-* @s: pointer to the string literal to operte on
+* puts2 - check string legthn
+* @str: pointer to array of chaacters
 */
-void print_rev(char *s)
+void puts2(char *str)
 {
 	int len = 0;
+	char *beginpoint = str;
 
-	while (*s != '\0')
+	while (*str != '\0')
 	{
 		len = len + 1;
-		*s++;
+		str++;
 	}
-	while (len >= 0)
+	str--;
+
+	while (beginpoint <= str)
 	{
-		putchar(*s);
-		*s--;
-		len--;
+		putchar(*beginpoint);
+		beginpoint = beginpoint + 2;
 	}
 	putchar('\n');
 }
-
