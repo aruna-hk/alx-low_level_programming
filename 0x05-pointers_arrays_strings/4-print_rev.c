@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 /**
 * print_rev - print arg in reverse
 * @s: pointer to the string literal to operate on
@@ -12,11 +12,13 @@ void print_rev(char *s)
 		len = len + 1;
 		s++;
 	}
-	while (len >= 0)
+	s--;
+
+	while (len > 0)
 	{
-		_putchar(*(s-1));
+		putchar(*s);
 		s--;
 		len--;
 	}
-	_putchar('\n');
+	putchar('\n');
 }
