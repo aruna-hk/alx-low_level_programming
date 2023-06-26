@@ -21,14 +21,11 @@ void rev_string(char *s)
 	{
 		if (swapspace == '\0')
 			break;
-		else
-		{
-			swapspace = *start;
-			*start = *s;
-			*s = swapspace;
-			start++;
-			s--;
-		}
+		swapspace = *start;
+		*start = *s;
+		*s = swapspace;
+		start++;
+		s--;
 	}
 }
 int main(void)
