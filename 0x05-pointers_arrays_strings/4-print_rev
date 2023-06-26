@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
 * print_rev - print arg in reverse
-* @s: pointer to the string literal to operte on
+* @s: pointer to the string literal to operate on
 */
 void print_rev(char *s)
 {
@@ -20,4 +20,3 @@ void print_rev(char *s)
 	}
 	putchar('\n');
 }
-

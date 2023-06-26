@@ -1,14 +1,18 @@
-#include "main.h"
+#include <stdio.h>
 /**
 * _puts - display the str passed
 * @str: -take the string
 */
-void _puts(char *str)
+void print_rev(char *s)
 {
-	while (*str != '\0')
-	{
-		_putchar(*str);
-		str++;
-	}
+	for (*s = '\0'-1;;s--)
+		_putchar(s);
 	_putchar('\n');
 }
+int main(void)
+{
+    char *str;
+
+    str = "I do not fear computers. I fear the lack of them - Isaac Asimov";
+    print_rev(str);
+}  
