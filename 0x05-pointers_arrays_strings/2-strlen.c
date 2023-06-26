@@ -1,19 +1,14 @@
 #include <stdio.h>
 /**
 * _strlen - check string legthn
-* @s: pointer to arra of chaacters
-* return: length;
+* @s: pointer to array of chaacters
+* Return: len-length of the string
 */
 int _strlen(char *s)
 {
-	return (sizeof(s));
-}
-int main()
-{   char *str;
-    int len;
+	int len;
 
-    str = "My first strlen!";
-    len = _strlen(str);
-    printf("%d\n", len);
-    return (0);
+	for ( ; *s != '\0'; *s++)
+		len = len + 1;
+	return (len);
 }
