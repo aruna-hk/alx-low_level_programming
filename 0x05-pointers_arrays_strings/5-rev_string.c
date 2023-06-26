@@ -8,7 +8,6 @@ void rev_string(char *s)
 	int len = 0;
 	char *start = s;
 	char swapspace;
-	int swapcount = 0;
 
 	while (*s != '\0')
 	{
