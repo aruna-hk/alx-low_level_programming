@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 /**
 * _strlen - check string legthn
 * @s: pointer to array of chaacters
