@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 /**
 * _strlen - check string legthn
@@ -11,7 +12,8 @@ int _strlen(char *s)
 	while (*s != '\0')
 	{
 		len = len + 1;
-		*s++;
+		s++;
 	}
 	return (len);
 }
+
