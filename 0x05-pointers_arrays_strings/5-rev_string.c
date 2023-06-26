@@ -8,6 +8,7 @@ void rev_string(char *s)
 	int len = 0;
 	char *start = s;
 	char swapspace;
+	int swapcount = 0;
 
 	while (*s != '\0')
 	{
@@ -18,12 +19,24 @@ void rev_string(char *s)
 
 	while (start < s)
 	{
-		swapspace = *start;
-		*start = *s;
-		*s = swapspace;
-		start++;
-		s--;
+		if (swapspace == '\0')
+			break;
+		else
+		{
+			swapspace = *start;
+			*start = *s;
+			*s = swapspace;
+			start++;
+			s--;
+		}
 	}
-	putchar('\n');
 }
+int main(void)
+{
+	char s[11] = "Holberton!";
 
+	printf("%s\n", s);
+	rev_string(s);
+	printf("%s\n", s);
+	return (0);
+}
