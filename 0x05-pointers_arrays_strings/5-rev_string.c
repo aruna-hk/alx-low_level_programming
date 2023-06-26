@@ -12,9 +12,9 @@ void rev_string(char *s)
 		len = len + 1;
 		s++;
 	}
-	while (len >= 0)
+	while (len > 0)
 	{
-		putchar(*(s-1));
+		putchar(*s);
 		s--;
 		len--;
 	}

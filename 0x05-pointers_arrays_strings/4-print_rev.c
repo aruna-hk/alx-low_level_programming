@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 /**
 * print_rev - print arg in reverse
 * @s: pointer to the string literal to operate on
@@ -16,9 +16,9 @@ void print_rev(char *s)
 
 	while (len > 0)
 	{
-		putchar(*s);
+		_putchar(*s);
 		s--;
 		len--;
 	}
-	putchar('\n');
+	_putchar('\n');
 }
