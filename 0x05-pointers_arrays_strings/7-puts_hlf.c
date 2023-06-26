@@ -1,4 +1,4 @@
-#include "main."
+#include "main.h"
 /**
 * puts_half - split string into half and displays
 * @str: strg to split
@@ -15,13 +15,24 @@ void puts_half(char *str)
 		len = len + 1;
 		str = str + 1;
 	}
+	str--;
 
-	half = len / 2;
+	if (len % 2 != 0)
+	{
+		half = (len - 1) / 2;
+		f_half = f_half + half + 1;
+	}
+	else
+	{
+		half = len / 2;
+		f_half = f_half + half;
+	}
+
 	r_half = r_half + len;
-	f_half = f_half + half;
 
-	for (str = f_half; str <= r_half - 1; str++)
+	for (str = f_half; str <= r_half; str++)
 	{
 		putchar(*str);
 	}
+	putchar('\n');
 }
