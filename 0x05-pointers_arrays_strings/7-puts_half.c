@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 /**
 * puts_half - split string into half and displays
 * @str: strg to split
@@ -32,7 +32,16 @@ void puts_half(char *str)
 
 	for (str = f_half; str <= r_half; str++)
 	{
-		_putchar(*str);
+		if (*str != '\0')
+			putchar(*str);
 	}
 	putchar('\n');
+}
+int main(void)
+{
+	char *str;
+
+	str = "Holberton!";
+	puts_half(str);
+	return (0);
 }
