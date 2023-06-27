@@ -1,7 +1,9 @@
 #include <stdio.h>
 /**
-*
-*
+* _strcpy - copy string to another
+* @dest: reipient
+* @src: source
+* Return: dest
 */
 char *_strcpy(char *dest, char *src)
 {
@@ -10,20 +12,20 @@ char *_strcpy(char *dest, char *src)
 	char *desl = dest;
 	char *srcl = src;
 
-	while(*dest !='\0')
+	while (*dest != '\0')
 	{
 		len_dest++;
 		dest++;
 	}
-	
-	while(*src !='\0')
-	{	
+
+	while (*src != '\0')
+	{
 		len_src++;
 		src++;
 	}
 	while (src > srcl)
 	{
-		while(dest > desl)
+		while (dest > desl)
 		{
 			*dest = *src;
 			dest--;
@@ -31,4 +33,5 @@ char *_strcpy(char *dest, char *src)
 		}
 		src--;
 	}
+	return (dest);
 }
