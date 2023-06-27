@@ -5,31 +5,33 @@
 */
 char *_strcpy(char *dest, char *src)
 {
-	int len_of_first = 0;
-	int len_of_second = 0;
-	char *firstD = dest;
-	char *firstS = src;
+	int len_src = 0;
+	int len_dest = 0;
+	char *desl = dest;
+	char *srcl = src;
+
 	while(*dest !='\0')
 	{
-		len_of_first++;
+		len_dest++;
 		dest++;
 	}
-	le_of_first =len_of_first+1;
+	
 	while(*src !='\0')
-	{
-		len_of_second++;
+	{	
+		len_src++;
 		src++;
 	}
-	len_of_second = len_of_secod+1;
-
-	for (:q
-
+	while (src > srcl)
 	{
-		for(;dest<=len_of_second+1;dest++;)
+		while(dest > desl)
 		{
-			*dest=*src;
+			*dest = *src;
+			dest--;
+			break;
 		}
+		src--;
 	}
+}
 int main(void)
 {
     char s1[98];
