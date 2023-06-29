@@ -5,19 +5,22 @@
  * @src: - str to append to dest str
  * Return: dest -- pointer to dest
 */
-char *_strcat(char *dest, char *src)
+char *_strncat(char *dest, char *src, int n)
 {
+	int i = 0;
 	char *point_er;
+
 	point_er = dest;
 	while (*dest != 0)
 	{
 		dest++;
 	}
-	while (*src != 0)
+	while (i < n && *src != '\0')
 	{
 		*dest = *src;
 		dest++;
 		src++;
+		i++;
 	}
 	*dest = '\0';
 	point_er = dest;
@@ -31,7 +34,11 @@ int main(void)
 
     printf("%s\n", s1);
     printf("%s", s2);
-    ptr = _strcat(s1, s2);
+    ptr = _strncat(s1, s2, 1);
+    printf("%s\n", s1);
+    printf("%s", s2);
+    printf("%s\n", ptr);
+    ptr = _strncat(s1, s2, 1024);
     printf("%s", s1);
     printf("%s", s2);
     printf("%s", ptr);
