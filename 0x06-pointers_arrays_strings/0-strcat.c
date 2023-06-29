@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 /**
  * _strcat - append string to a string
  * @dest: -destination string
