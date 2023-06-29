@@ -8,10 +8,8 @@
 char *_strncat(char *dest, char *src, int n)
 {
 	int i = 0;
-	char *point_er;
 
-	point_er = dest;
-	while (*dest != 0)
+	while (*dest !='\0')
 	{
 		dest++;
 	}
@@ -23,8 +21,7 @@ char *_strncat(char *dest, char *src, int n)
 		i++;
 	}
 	*dest = '\0';
-	point_er = dest;
-	return (point_er);
+	return (dest);
 }
 int main(void)
 {

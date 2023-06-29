@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 /**
  * _strcat - append string to a string
  * @dest: -destination string
@@ -7,12 +7,11 @@
  */
 char *_strcat(char *dest, char *src)
 {
-	char *point_er;
 	int len = 0;
+	char *ptr = dest;
 
-	point_er = dest;
 	while (*dest != '\0')
-		{
+	{
 		len++;
 		dest++;
 	}
@@ -24,9 +23,5 @@ char *_strcat(char *dest, char *src)
 		src++;
 	}
 	*dest = '\0';
-	for (int i = 0; i < len; i++)
-	{
-		dest--;
-	}
-	return (point_er);
+	return (ptr);
 }
