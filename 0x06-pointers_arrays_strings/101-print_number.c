@@ -35,5 +35,4 @@ void print_number(int n)
 			n = n % power;
 		}
 	}
-	_putchar('\n');
 }
