@@ -9,15 +9,15 @@
 char *_strncpy(char *dest, char *src, int n)
 {
 	int i = 0;
-	char *ptr = src;
+	char *ptr = dest;
 
+	dest+1;
 	while (i < n && *src != '\0')
 	{
 		*dest = *src;
-		dest++;
 		src++;
+		dest++;
 		i++;
 	}
-	dest = ptr;
 	return (dest);
 }
