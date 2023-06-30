@@ -8,33 +8,20 @@
 */
 char* _strncpy(char* dest, char* src, int n)
 {
-    int i = 0;
-    char* ptr = dest;
-    char* temp = dest;
-
-    while (*temp != '\0')
-    {
-        temp++;
-    }
-
-    while (i < n && *src != '\0')
-    {
-        *dest = *src;
-        dest++;
-        src++;
-        i++;
-    }
-
-    while (*temp != '\0')
-    {
-        *dest = *temp;
-        dest++;
-        temp++;
-    }
-
-    *dest = '\0';
-
-    return ptr;
+/******************************************************************
+*********************************************************************
+************/
+	int i = 0;
+	char *ptr = dest;
+	while (i < n && *src != '\0')
+	{
+		*dest = *src;
+		dest++;
+		src++;
+		i++;
+	}
+	
+       return ptr;
 }
 
 int main(void)
