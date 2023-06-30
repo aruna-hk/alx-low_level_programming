@@ -1,5 +1,5 @@
 #include "main.h"
-#include <main.h>
+#include <stdio.h>
 /**
  * rot13 - rot 13 encryption
  * @str: - takes string arg
