@@ -8,9 +8,6 @@
 */
 char *_strncpy(char *dest, char *src, int n)
 {
-/******************************************************************
-*********************************************************************
-************/
 	int i = 0;
 	char *ptr = src;
 
@@ -21,5 +18,6 @@ char *_strncpy(char *dest, char *src, int n)
 		src++;
 		i++;
 	}
-	return (ptr);
+	dest = ptr;
+	return (dest);
 }
