@@ -7,7 +7,7 @@
 */
 char *cap_string(char *j)
 {
-	char delimiter[]={',',';','.','!','?','"','(',')','{','}'};
+	char delimiter[]=",;.!?\"(){} \t\n";
 	char caps[]="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char small[]="abcdefghijklmnopqrstuvwxyz";
 	int i;
@@ -23,7 +23,7 @@ char *cap_string(char *j)
 	}
 	while (*j != '\0')
 	{
-		for (m = 0; m <= 10;m++)
+		for (m = 0; m <= 14;m++)
 		{
 			if (*j == delimiter[m])
 			{
@@ -38,9 +38,12 @@ char *cap_string(char *j)
 				
 				}
 				break;
-			}		
+			}
+		if (prev_delimiter && *j != '\0' && *j != ' ' && *j != '\t' && *j != '\n')
+	       	{
+			prev_delimiter = 0;
 		}
-		j++;
+		j++;:
 	}
 
 }
