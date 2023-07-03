@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 /**
 * _strpbrk -looks for 1st occurence of any character of accept in string s
 * @s: str s--occurence look-up;
@@ -7,8 +7,6 @@
 */
 char *_strpbrk(char *s, char *accept)
 {
-	int s_number;
-	int accept_number;
 	int len_accept;
 
 	while (*accept != '\0')
@@ -16,14 +14,11 @@ char *_strpbrk(char *s, char *accept)
 		len_accept++;
 		accept++;
 	}
-	accept = accept - (len_accept + 1);
 	while (*s != '\0')
 	{
-		s_number = (int)*s;
 		while (*accept != '\0')
 		{
-			accept_number = (int)*accept;
-			if (s_number == accept_number)
+			if (*accept == *s)
 			{
 				return (s);
 			}
