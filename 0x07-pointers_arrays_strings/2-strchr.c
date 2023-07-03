@@ -7,16 +7,9 @@
 */
 char *_strchr(char *s, char c)
 {
-	int num;
-	int compare;
-	char ss;
-
-	num = (int)c;
 	while (*s != '\0')
 	{
-		ss = *s;
-		compare = (int)ss;
-		if (num == compare)
+		if (*s == c)
 		{
 			return (s);
 		}
