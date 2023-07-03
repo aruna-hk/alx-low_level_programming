@@ -1,24 +1,20 @@
 #include "main.h"
 /**
-* _strstr -looks for 1st occurence of charcter in needle -- in heystack
-* @haystack: parent str -- look up;
-* @needle: caracter to compare with parent character;
-* Return: NULL/ ptr/ ptr --if exist else null
-*/
+ * _strstr - looks for the first occurrence of 'needle' in 'haystack'
+ * @haystack: the string to search
+ * @needle: the string to find
+ * Return: a pointer to the first occurrence, or NULL if not found
+ */
 char *_strstr(char *haystack, char *needle)
 {
-	char *org_ptr = haystack;
+	char *org_ptr = needle;
 
 	while (*needle != '\0')
 	{
-		if (*needle == '\0')
-			break;
 		while (*haystack != '\0')
 		{
-			if (*needle == *haystack)
-			{
+			if (*haystack == *needle)
 				return (haystack);
-			}
 			haystack++;
 		}
 		haystack = org_ptr;
