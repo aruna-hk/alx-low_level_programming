@@ -1,6 +1,6 @@
 #include "main.h"
 /**
-* _memset - function fills the first n bytes of
+* _memset - function fills the first n bytes destination with char provided
 * @s:to be filled by b--bytes
 * @b:to fill s
 * @n: bytes to be filled
@@ -8,7 +8,7 @@
 */
 char *_memset(char *s, char b, unsigned int n)
 {
-	int i = 0;
+	unsigned int i = 0;
 	char *init_pointer = s;
 
 	while (i < n)
