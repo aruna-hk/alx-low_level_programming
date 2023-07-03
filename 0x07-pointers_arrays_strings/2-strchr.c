@@ -1,6 +1,6 @@
 #include "main.h"
 /**
-* _strchr - locates a character in a string
+* _strchr - locates a character in a string--
 * @s: --string to search
 * @c: -- character to search
 * Return: ptr to 1st occurences of search character//NULL is not found
