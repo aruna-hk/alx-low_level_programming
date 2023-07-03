@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 /**
  * _strstr - looks for the first occurrence of 'needle' in 'haystack'
  * @haystack: the string to search
@@ -9,16 +9,27 @@ char *_strstr(char *haystack, char *needle)
 {
 	char *org_ptr = needle;
 
-	while (*needle != '\0')
+	while (*haystack != '\0')
 	{
-		while (*haystack != '\0')
+		char *temp1 = haystack;
+		char *temp2 = needle;
+		while (*temp1 == *temp2 && *temp2 != '\0')
 		{
-			if (*haystack == *needle)
-				return (haystack);
-			haystack++;
+			temp1++;
+			temp2++;
 		}
-		haystack = org_ptr;
-		needle++;
+		if (*temp2 == '\0')
+			return (haystack);
 	}
 	return (NULL);
+}
+int main(void)
+{
+    char *s = "hello, world";
+    char *f = "world";
+    char *t;
+
+    t = _strstr(s, f);
+    printf("%s\n", t);
+    return (0);
 }
