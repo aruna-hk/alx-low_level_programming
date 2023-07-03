@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 /**
 * _strstr -looks for 1st occurence of charcter in needle -- in heystack
 * @haystack: parent str -- look up;
@@ -28,14 +28,4 @@ char *_strstr(char *haystack, char *needle)
 		needle++;
 	}
 	return (NULL);
-}
-int main(void)
-{
-    char *s = "kiptoo haron ngehnoh";
-    char *f = "harun";
-    char *t;
-
-    t = _strstr(s, f);
-    printf("%s\n", t);
-    return (0);
 }
