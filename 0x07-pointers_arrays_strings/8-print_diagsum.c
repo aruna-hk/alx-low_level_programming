@@ -8,17 +8,14 @@ void print_diagsums(int *a, int size)
 {
 	int sum-diag1 = 0;
 	int sum_diag2 = 0;
-	while ( i < size)
+	int i;
+	int len = 0;
+
+	while (*a != '\0')
 	{
-		while (*a != '\0')
-		{
-			sum_diag1 =sum_diag1 + (*a)[i];
-			a++;
-			break;
-		}
-		i++;
+		len++;
+		a++;
 	}
-	a = a - 1;
-	while (a[i] >=0)
+	while (i < size))
 	{
-		a
+		while
