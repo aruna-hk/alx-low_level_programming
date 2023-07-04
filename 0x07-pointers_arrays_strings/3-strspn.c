@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 /**
 * _strspn - locates a character in string s and give byte locatin ,,
