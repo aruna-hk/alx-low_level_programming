@@ -26,7 +26,7 @@ int is_palindrome(char *s)
 {
 	int str_length = _strlen_recursion(char *s);
 
-	if (length == 1)
+	if (str_length == 1)
 		return (1);
 	return (check_if_palindrome(s, 0, str_length - 1));
 }
