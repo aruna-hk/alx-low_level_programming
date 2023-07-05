@@ -17,6 +17,18 @@ int check_if_palindrome(char *s, int start, int end)
 		return (0);
 }
 /**
+* _strlen_recursion - checks string length
+* @s: string arguement
+* Return: int string lenth
+*/
+int _strlen_recursion(char *s)
+{
+	if (*s == '\0')
+		return (0);
+	return (1 + _strlen_recursion(s + 1));
+}
+
+/**
 * is_palindrome - finds len of string
 * and pass it to check if palindrom function
 * @s:string arguement to evaluate len and passed onto check function
