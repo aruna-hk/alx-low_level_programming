@@ -19,11 +19,12 @@ int is_palindrome(char *s)
 	while (i < len_s)
 	{
 		if (*start != *s)
-			return (0);
+			break;
 		if (*start == *s && i == len_s - 1)
 			return (1);
 		start++;
 		s--;
 		i++;
 	}
+	return (0);
 }
