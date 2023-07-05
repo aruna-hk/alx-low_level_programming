@@ -8,7 +8,7 @@
 * Return: 1 if palindrom /0 if not
 */
 int check_if_palindrome(char *s, int start, int end)
-	{
+{
 	if (start >= end)
 		return (1);
 	else if (*(s + start) == *(s + end))
@@ -24,8 +24,9 @@ int check_if_palindrome(char *s, int start, int end)
 */
 int is_palindrome(char *s)
 {
-	int str_length = _strlen_recursion(char *s);
+	int str_length;
 
+	str_length = _strlen_recursion(s);
 	if (str_length == 1)
 		return (1);
 	return (check_if_palindrome(s, 0, str_length - 1));
