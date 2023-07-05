@@ -1,30 +1,32 @@
 #include "main.h"
 /**
-* is_palindrome - check if string reads the ame way forwar and backword
-* @s:string arguement
-* Return: 1 is palindrom else 0
+* check_if_palindrome - recieve string,
+* its startin, and ending pos, and check if palindrom
+* @s: string arguement
+* @start: start index of first char in string s
+* @end: end index of last char in strin s
+* Return: 1 if palindrom /0 if not
+*/
+int check_if_palindrome(char *s, int start, int end)
+	{
+	if (start >= end)
+		return (1);
+	else if (*(s + start) == *(s + end))
+		return (check_if_palindrome(s, start + 1, end - 1));
+	else
+		return (0);
+}
+/**
+* is_palindrome - finds len of string
+* and pass it to check if palindrom function
+* @s:string arguement to evaluate len and passed onto check function
+* Return: from check if palindrom function
 */
 int is_palindrome(char *s)
 {
-	int i = 0;
-	int len_s = 0;
-	char *start = s;
+	int str_length = _strlen_recursion(char *s);
 
-	while (*s != '\0')
-	{
-		len_s++;
-		s++;
-	}
-	s--;
-	while (i < len_s)
-	{
-		if (*start != *s)
-			break;
-		if (*start == *s && i == len_s - 1)
-			return (1);
-		start++;
-		s--;
-		i++;
-	}
-	return (0);
+	if (length == 1)
+		return (1);
+	return (check_if_palindrome(s, 0, length - 1));
 }
