@@ -1,22 +1,41 @@
 #include <stdlib.h>
-#include "main.h"
+*#include "main.h"
 #include <stdio.h>
+#include <string.h>
 /**
-* main - takes two numbers & mult
-* @argc: name
+* main - add +ve numbers if non number encounter == error
+* @argc: name/size det
 * @argv: arguement vector
-* Return: mult if arg are 2/error if arg <2
+* Return: 0 succes 1 failure
 */
 int main(int argc, char *argv[])
 {
-	if (argc = 0)
+	int i = 1;
+	unsigned int j;
+	unsigned int sum = 0;
+	char *ptr_n;
+
+	if (argc > 1)
 	{
-		_putchar(48);
-		_putchar('\n');
+		while (i < argc)
+		{
+			j = 0;
+			ptr_n = argv[i];
+			while (j < strlen(ptr_n))
+			{
+				if (ptr_n[j] <  '0' || ptr_n[j] > '9')
+				{
+					printf("Error\n");
+					return (1);
+				}
+				j++;
+			}
+			sum += atoi(ptr_n);
+			i++;
+		}
+		printf("%u", sum);
 	}
 	else
-	{
-		printf("%d\n", atoi(argv[1]) * atoi(argv[2]));
-		return (0);
-	}
+		printf("0\n");
+	return (0);
 }
