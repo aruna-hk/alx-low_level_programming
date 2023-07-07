@@ -18,7 +18,6 @@ int main(int argc, char *argv[])
 		j = atoi(argv[2]);
 
 		printf("%d\n", i * j);
-		return (0);
 	}
 	else
 	{
@@ -26,4 +25,5 @@ int main(int argc, char *argv[])
 		putchar('\n');
 		return (1);
 	}
+	return (0);
 }
