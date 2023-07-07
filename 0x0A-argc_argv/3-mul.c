@@ -5,23 +5,23 @@
 * main - takes two numbers & mult
 * @argc: name
 * @argv: arguement vector
-* Return: 
+* Return: 0-sucess 1 -error
 */
 int main(int argc, char *argv[])
 {
 	int i = 0;
 	int j = 0;
+	int mult;
 
 	if (argc == 3)
 	{
 		i = atoi(argv[1]);
 		j = atoi(argv[2]);
-		printf("%d\n", i * j);
+		mult = i * j;
+		printf("%d\n", mult);
 		return (0);
 	}
 	else
-	{
 		printf("Error\n");
-		return (1);
-	}
+	return (1);
 }
