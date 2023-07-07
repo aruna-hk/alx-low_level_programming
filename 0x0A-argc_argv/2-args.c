@@ -6,7 +6,7 @@
 * @argv: arg list
 * Return: 0 sucess
 */
-int main(int argc, int *argv[])
+int main(int argc, char *argv[])
 {
 	int i = 0;
 
@@ -15,5 +15,5 @@ int main(int argc, int *argv[])
 		printf("%s\n", argv[i]);
 		i++;
 	}
-	return (0)
+	return (0);
 }
