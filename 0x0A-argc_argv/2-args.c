@@ -2,14 +2,15 @@
 #include <stdio.h>
 /**
 * main - display arguments it recieve
-* @argc:
+* @argc:number of parameters
 * @argv: arg list
+* Return: 0 sucess
 */
-int main(int arg, int *argv[])
+int main(int argc, int *argv[])
 {
 	int i = 0;
 
-	while(i < argc)
+	while (i < argc)
 	{
 		printf("%s\n", argv[i]);
 		i++;
