@@ -1,24 +1,22 @@
 #include <stdio.h>
 /**
 * main - takes two numbers & mult
-* @q: 1st arg
-* @a: 2nd arg
+* @argc: name
+* @argv: arguement vector
 * Return: mult if arg are 2/error if arg <2
 */
-int main (int mul, char *mul[3])
+int main(int argc, char *argv[])
 {
-	if (mul < 3 || mul > 3)
+	if (argc != 3)
 	{
 		printf("Error:arguement error");
 		putchar('\n');
+		return (1);
 	}
 	else
 	{
-		int a = mul[1];
-		int b = mul[2];
 
-		printf("%d\n", a * b);
+		printf("%d\n", argv[1] * argv[2]);
 		return (0);
 	}
-	return (1);
 }
