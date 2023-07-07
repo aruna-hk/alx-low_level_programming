@@ -5,7 +5,7 @@
 * main - takes two numbers & mult
 * @argc: name
 * @argv: arguement vector
-* Return: mult if arg are 2/error if arg <2
+* Return: 
 */
 int main(int argc, char *argv[])
 {
