@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 /**
 * _strspn - locates a character in string s and give byte locatin ,,
 * @s: --string to search for char in str accept
@@ -22,14 +22,4 @@ unsigned int _strspn(char *s, char *accept)
 		accept++;
 	}
 	return (count + 1);
-}
-int main(void)
-{
-    char *s = "hello, world";
-    char *f = "oleh";
-    unsigned int n;
-
-    n = _strspn(s, f);
-    printf("%u\n", n);
-    return (0);
 }
