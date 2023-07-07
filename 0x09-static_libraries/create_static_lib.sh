@@ -3,7 +3,7 @@
 gcc -c *c
 
 #placing object functions in ths library
-ar rc liball *.o
+ar rc liball.a *.o 
 
 #indexing the function in the library
-ranlib liball
+ranlib liball.a
