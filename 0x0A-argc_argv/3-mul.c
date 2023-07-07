@@ -17,7 +17,10 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		printf("%d\n", argv[1] * argv[2]);
+		int i = atoi(argv[1]);
+		int j = atoi(argv[2]);
+
+		printf("%d\n", i * j);
 		return (0);
 	}
 }
