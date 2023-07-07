@@ -16,14 +16,12 @@ int main(int argc, char *argv[])
 	{
 		i = atoi(argv[1]);
 		j = atoi(argv[2]);
-
 		printf("%d\n", i * j);
+		return (0);
 	}
 	else
 	{
-		printf("Error");
-		putchar('\n');
+		printf("Error\n");
 		return (1);
 	}
-	return (0);
 }
