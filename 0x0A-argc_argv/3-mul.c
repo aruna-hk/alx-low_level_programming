@@ -10,20 +10,20 @@
 int main(int argc, char *argv[])
 {
 	int i;
-	int j
+	int j;
 
-	if (argc != 3)
-	{
-		printf("Error");
-		putchar('\n');
-		return (1);
-	}
-	else
+	if (arg == 3)
 	{
 		i = atoi(argv[1]);
 		j = atoi(argv[2]);
 
 		printf("%d\n", i * j);
 		return (0);
+	}
+	else
+	{
+		printf("Error");
+		putchar('\n');
+		return (1);
 	}
 }
