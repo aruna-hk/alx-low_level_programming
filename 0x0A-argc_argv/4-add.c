@@ -1,7 +1,7 @@
-#include <stdlib.h>
-*#include "main.h"
-#include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include "main.h"
+#include <stdio.h>
 /**
 * main - add +ve numbers if non number encounter == error
 * @argc: name/size det
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 			sum += atoi(ptr_n);
 			i++;
 		}
-		printf("%u", sum);
+		printf("%u\n", sum);
 	}
 	else
 		printf("0\n");
