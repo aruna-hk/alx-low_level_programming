@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "main.h"
 /**
-* create _array - create aray and initialize it with specified char
+* create_array - create aray and initialize it with specified char
 * @size: size of array to create
 * @c: charater to insert to the array
 * Return: pointer to array created
@@ -13,8 +13,9 @@ char *create_array(unsigned int size, char c)
 
 	if (size == 0)
 		return (0);
-	init_ptr = malloc(sizeof(char)*size);
-
+	init_ptr = malloc(sizeof(char)i * size);
+	if (init_ptr == 0)
+		return (0);
 	for (i = 0; i < size; i++)
 	{
 		init_ptr[i] = c;
