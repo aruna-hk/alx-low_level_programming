@@ -8,11 +8,12 @@
 */
 char *create_array(unsigned int size, char c)
 {
-	int i;
+	unsigned int i;
+	char *init_ptr;
 
 	if (size == 0)
 		return (0);
-	char *init_ptr = malloc(sizeof(char)*size);
+	init_ptr = malloc(sizeof(char)*size);
 
 	for (i = 0; i < size; i++)
 	{
