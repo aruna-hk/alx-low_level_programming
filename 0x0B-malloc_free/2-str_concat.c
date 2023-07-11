@@ -73,7 +73,10 @@ char *str_concat(char *s1, char *s2)
 	char *heap_space;
 
 	if (s1 == NULL && s2 == NULL)
-		return (0);
+	{
+		heap_space = malloc(sizeof(char));
+		return (heap_space);
+	}
 	if (s1 != NULL && s2 == NULL)
 	{
 		heap_space = malloc(sizeof(s1));
