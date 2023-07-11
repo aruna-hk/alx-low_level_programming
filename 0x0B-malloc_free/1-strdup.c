@@ -50,7 +50,7 @@ char *_strdup(char *str)
 		return (0);
 	if (sizeof(str) < 1)
 		return (0);
-	heap_buffer = malloc(sizeof(char) * _strlen(str));
+	heap_buffer = malloc(sizeof(char) * (_strlen(str) + 1));
 	if (heap_buffer == 0)
 		return (0);
 	_strcpy(heap_buffer, str);
