@@ -1,5 +1,42 @@
 #include "main.h"
 #include <stdlib.h>
+
+/**
+*  _strcpy - copy string to another
+* @dest: reipient
+* @src: source
+* Return: dest
+*/
+char *_strcpy(char *dest, char *src)
+{
+	char *ptr = dest;
+
+	while (*src != '\0')
+	{
+		*dest = *src;
+		dest++;
+		src++;
+	}
+	*dest = '\0';
+	return (ptr);
+}
+/**
+* _strlen - check string legthn
+* @s: pointer to array of chaacters
+* Return: len-length of the string
+*/
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (*s != '\0')
+	{
+		len = len + 1;
+		s++;
+	}
+	return (len);
+}
+
 /**
 * _strdup - copy string to the heap
 * @str: pointer to string arg--to be copied to buffer in heap
