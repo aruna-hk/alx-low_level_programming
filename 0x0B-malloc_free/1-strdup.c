@@ -31,7 +31,7 @@ int _strlen(char *s)
 
 	while (*s != '\0')
 	{
-		len = len + 1;
+		len++;
 		s++;
 	}
 	return (len);
@@ -46,7 +46,9 @@ char *_strdup(char *str)
 {
 	char *heap_buffer;
 
-	if (_strlen(str) == 0)
+	if (str == NULL)
+		return (0);
+	if (sizeof(str) < 1)
 		return (0);
 	heap_buffer = malloc(sizeof(char) * _strlen(str));
 	if (heap_buffer == 0)
