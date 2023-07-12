@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 #include <stdlib.h>
 /**
 * alloc_grid - allocate 2d array in heap
