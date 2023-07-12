@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
 /**
 * alloc_grid - allocate 2d array in heap
@@ -13,7 +13,7 @@ int **alloc_grid(int width, int height)
 	int i;
 	int **arr;
 
-	if ( width || height <= 0)
+	if (width == 0 || height == 0)
 		return (0);
 	arr = malloc(sizeof(int *) * height);
 	if (arr == 0)
@@ -21,6 +21,8 @@ int **alloc_grid(int width, int height)
 
 	for (i = 0; i < height; i++)
 	{	arr[i] = malloc(sizeof(int) * width);
+		if (arr[i] == 0)
+			return (0);
 		j = 0;
 		while (j < width)
 		{
