@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 /**
-* free_grid - free alocated multidimensional arra-- case 2d
+* free_grid - free alocated multidimensional array-- case 2d
 * @grid: takes 2d array as arguement
 * @height: number of rows arguemnt
 */
