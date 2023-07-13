@@ -103,8 +103,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (n == 0)
 		return (s1);
 	if (s2 == NULL)
-		s2 = "";
-	if (s2 == NULL)
 		return (s1);
 	len = _strlen(s1);
 	if ((unsigned int) _strlen(s2) <= n)
