@@ -1,4 +1,4 @@
-#include "maim.h"
+#include "main.h"
 #include <stdlib.h>
 /**
 * array_range - takes int interval and insert them
