@@ -103,22 +103,24 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	if (n == 0)
 		return (s1);
-	if (s2 == "NULL")
+	if (s2 == NULL)
 		return (s1);
 	len = _strlen(s1);
-	if (len <= n)
+	if (_strlen(s2) <= n)
 	{
 		heap_space = malloc(sizeof(char) * (len + _strlen(s2) + 1));
 		if (heap_space == NULL)
-			return (0);
+			return (NULL);
 		_strcpy(heap_space, s1);
 		_strcat(heap_space, s2);
 	}
-
-	heap_space = malloc(sizeof(char) * (len + _strlen(s2) + 1));
-	if (heap_space == NULL)
-		return (0);
-	_strcpy(heap_space, s1);
-	_strncat(heap_space, s2, n);
+	else
+	{
+		heap_space = malloc(sizeof(char) * (len + _strlen(s2) + 1));
+		if (heap_space == NULL)
+			return (NULL);
+		_strcpy(heap_space, s1);
+		_strncat(heap_space, s2, n);
+	}
 	return (heap_space);
 }
