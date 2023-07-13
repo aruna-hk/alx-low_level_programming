@@ -7,7 +7,7 @@
 */
 int _strlen(char *s)
 {
-	unsigned int len = 0;
+	int len = 0;
 
 	while (*s != '\0')
 	{
@@ -100,7 +100,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *heap_space;
 	int len;
 
-	if (n <= 0)
+	if (n == 0)
 		return (s1);
 	if (s2 == NULL)
 		return (s1);
@@ -115,7 +115,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	else
 	{
-		heap_space = malloc(sizeof(char) * (len + _strlen(s2) + 1));
+		heap_space = malloc(sizeof(char) * (len + n + 1));
 		if (heap_space == NULL)
 			return (NULL);
 		_strcpy(heap_space, s1);
