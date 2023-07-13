@@ -1,5 +1,5 @@
+#include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
 /**
 * _strlen - check string legthn
 * @s: pointer to array of chaacters
@@ -89,7 +89,7 @@ char *_strncat(char *dest, char *src, int n)
 }
 /**
 * string_nconcat - copies s1 to the heap and concatanate
-* with n bytes from s2
+* with n bytes from s2---
 * @s1: string arguement
 * @s2: str args
 * @n: number of bytesto extract from s2
@@ -108,18 +108,17 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	len = _strlen(s1);
 	if (len <= n)
 	{
-		heap_space = malloc(sizeof(char) * (len + 1));
+		heap_space = malloc(sizeof(char) * (len + _strlen(s2) + 1));
+		if (heap_space == NULL)
+			return (0);
 		_strcpy(heap_space, s1);
 		_strcat(heap_space, s2);
 	}
 
-	heap_space = malloc(sizeof(char) * (len + 1));
+	heap_space = malloc(sizeof(char) * (len + _strlen(s2) + 1));
 	if (heap_space == NULL)
 		return (0);
 	_strcpy(heap_space, s1);
-	realloc_heap = realloc(heap_space, sizeof(char) * n);
-	if (realloc_heap == NULL)
-		return (0);
-	_strncat(realloc_heap, s2, n);
-	return (realloc_heap);
+	_strncat(heap_space, s2, n);
+	return (heap_space);
 }
