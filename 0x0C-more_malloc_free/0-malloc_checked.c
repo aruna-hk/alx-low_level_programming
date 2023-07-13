@@ -12,7 +12,7 @@ void *malloc_checked(unsigned int b)
 	void *heap_space;
 
 	heap_space = malloc(sizeof(int));
-	if (heap_space == 0)
+	if (heap_space == NULL)
 		exit(98);
 	return (heap_space);
 }
