@@ -7,7 +7,7 @@
 */
 int _strlen(char *s)
 {
-	int len = 0;
+	unsigned int len = 0;
 
 	while (*s != '\0')
 	{
@@ -98,15 +98,14 @@ char *_strncat(char *dest, char *src, int n)
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *heap_space;
-	char *realloc_heap;
 	int len;
 
-	if (n == 0)
+	if (n <= 0)
 		return (s1);
 	if (s2 == NULL)
 		return (s1);
 	len = _strlen(s1);
-	if (_strlen(s2) <= n)
+	if ((unsigned int) _strlen(s2) <= n)
 	{
 		heap_space = malloc(sizeof(char) * (len + _strlen(s2) + 1));
 		if (heap_space == NULL)
