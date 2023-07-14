@@ -67,8 +67,10 @@ int _atoi(char *s)
 	while (!(s[i] <= '9' && s[i] >= '0') && s[i] != '\0')
 	{
 		if (s[i] == '-')
+		{
 			n = -n;
 			i++;
+		}
 	}
 	while (s[i] <= '9' && (s[i] >= '0' && s[i] != '\0'))
 	{
@@ -99,7 +101,7 @@ int _isdigit(int c)
 */
 int main(int argc, char *argv[])
 {
-	int ret;
+	int ret, i, j;
 	char c;
 	int num1;
 	int num2;
@@ -110,9 +112,9 @@ int main(int argc, char *argv[])
 		_puts_recursion("Error");
 		exit(98);
 	}
-	for (int i = 1; i < argc; i++)
+	for (i = 1; i < argc; i++)
 	{
-		for (int j = 0; argv[i][j] != 0; j++)
+		for (j = 0; argv[i][j] != 0; j++)
 		{
 			c = argv[i][j];
 			ret = _isdigit((int)c);
@@ -128,4 +130,5 @@ int main(int argc, char *argv[])
 	mult = num1 * num2;
 	print_number(mult);
 	_putchar('\n');
+	exit(98);
 }
