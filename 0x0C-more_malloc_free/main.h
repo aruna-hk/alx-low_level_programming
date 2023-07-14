@@ -1,4 +1,9 @@
 void *malloc_checked(unsigned int b);
+int _putchar(char c);
+void print_number(int n);
+int _isdigit(int c);
+int _atoi(char *s);
+void _puts_recursion(char *s);
 char *_strcat(char *dest, char *src);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
