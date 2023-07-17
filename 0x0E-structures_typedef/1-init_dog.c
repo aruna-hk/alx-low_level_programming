@@ -1,4 +1,3 @@
-#include "main.h"
 /**
 * init_dog - initialize variables in structure -dog structure
 * @d: ptr to the structure
