@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include "dog.h"
 /**
 * free_dog - free dog struct in the memory
 * @d: takes dog struct
