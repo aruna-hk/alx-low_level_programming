@@ -1,26 +1,28 @@
-#include "main.h"
-#include <unistd.h>
-
+#include <stdio.h>
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
+* _puts_recursion - prints string recursively
+* @s: ptr to string
+*/
+void _puts_recursion(char *s)
 {
-	return (write(1, &c, 1));
+	if (*s == '\0')
+	{
+		_putchar('\n');
+		return;
+	}
+	_putchar(*s);
+	s++;
+	_puts_recursion(s);
 }
 /**
-* _puts - display the str passed
-* @str: -take the string
+* main -- prints name of file using __FILE__macro
+* Return: 0;
 */
-void _puts(char *str)
+int main(void)
 {
-	while (*str != '\0')
-	{
-		_putchar(*str++);
-	}
-	_putchar('\n');
+	char *file_name;
+
+	file_name = __FILE__;
+	_puts_recursion(file_name);
+	return (0);
 }
