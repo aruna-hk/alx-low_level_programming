@@ -26,8 +26,9 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(100);
 	}
-	if (op_function == NULL || sign[1] != '\0')
+	if (op_function == NULL)
 	{
+		printf("Error\n");
 		exit(99);
 	}
 	printf("%d\n", op_function(arg1, arg2));
