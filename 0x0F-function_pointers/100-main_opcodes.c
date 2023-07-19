@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 	while (i < size)
 	{
 		printf("%02hhx", *memoryadd);
-		if ( i != (size - 1))
+		if (i != (size - 1))
 			printf(" ");
 		if (i == (size - 1))
 		{
