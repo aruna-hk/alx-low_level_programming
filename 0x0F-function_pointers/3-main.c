@@ -1,4 +1,4 @@
-#include "3-calc.h"
+#include "function_pointers.h"
 /**
 * main - simpl comand line calculattor calculator
 * @argc: number of arguements
