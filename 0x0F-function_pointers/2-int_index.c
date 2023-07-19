@@ -1,5 +1,4 @@
 #include "function_pointers.h"
-#include <stdio.h>
 /**
 * int_index - iterate through array and pass every
 * element of arr a function
