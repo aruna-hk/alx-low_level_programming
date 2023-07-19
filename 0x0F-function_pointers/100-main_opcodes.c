@@ -9,7 +9,7 @@
 int main(int argc, char *argv[])
 {
 	unsigned int i = 0;
-	size_t size;
+	unsigned int size;
 
 	char *memoryadd = (char *)main;
 
@@ -26,11 +26,14 @@ int main(int argc, char *argv[])
 	}
 	while (i < size)
 	{
-		printf("%x", memoryadd[i]);
-		if (i != (size - 1))
-			printf(" ");
+		printf("%02hhx", *memoryadd);
 		if (i == (size - 1))
+		{
 			printf("\n");
+			break;
+		}
+		printf(" ");
+		memoryadd++;
 		i++;
 	}
 	return (0);
