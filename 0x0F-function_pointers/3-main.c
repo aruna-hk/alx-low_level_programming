@@ -1,10 +1,16 @@
 #include "3-calc.h"
-
+/**
+* main - simpl comand line calculattor calculator
+* @argc: number of arguements
+* @argv: arg list of ptrs to arguements
+* Return: exit status
+*/
 int main(int argc, char *argv[])
 {
 	char *sign;
 	int arg1, arg2;
 	int (*op_function)(int, int);
+
 	if (argc != 4)
 	{
 		printf("Error\n");
@@ -23,6 +29,6 @@ int main(int argc, char *argv[])
 	{
 		exit(99);
 	}
-	printf("%d\n",op_function(arg1,arg2));
+	printf("%d\n", op_function(arg1, arg2));
 	exit(EXIT_SUCCESS);
 }

@@ -8,7 +8,7 @@
 int (*get_op_func(char *s))(int, int)
 {
 	int i = 0;
-	op_t ops[]={
+	op_t ops[] = {
 		{"+", op_add},
 		{"-", op_sub},
 		{"*", op_mul},
@@ -20,8 +20,9 @@ int (*get_op_func(char *s))(int, int)
 	{
 		if (strcmp(s, ops[i].op) == 0)
 		{
-			return(ops[i].f);
-		}i++;
+			return (ops[i].f);
+		}
+		i++;
 	}
 	printf("Error\n");
 	return (NULL);
