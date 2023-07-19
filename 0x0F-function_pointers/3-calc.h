@@ -16,4 +16,7 @@ int op_div(int a, int b);
 int op_mul(int a, int b);
 int op_sub(int a, int b);
 int (*get_op_func(char *s))(int, int);
+#include "3-op_functions.c"
+#include "3-get_op_func.c"
+
 #endif

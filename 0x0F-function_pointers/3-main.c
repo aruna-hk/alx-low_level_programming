@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include "3-calc.h"
-#include "3-op_functions.c"
-#include "3-get_op_func.c"
+#include "function_pointers.h"
 
 /**
 * main - simpl comand line calculattor calculator
@@ -31,7 +26,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(100);
 	}
-	if (op_function == NULL)
+	if (op_function == NULL || sign[1] != '\0')
 	{
 		exit(99);
 	}
