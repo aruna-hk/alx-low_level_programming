@@ -1,7 +1,7 @@
 #include "3-calc.h"
 /**
 * get_op_func -- find and return pointer to
-* respective function to allow arithmetic operation
+* respective function to allow arithmetic operation--
 * @s: sign string
 * Return: pointer to operators function/NULL
 */
