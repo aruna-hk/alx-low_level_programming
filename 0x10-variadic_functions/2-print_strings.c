@@ -1,5 +1,4 @@
 #include "variadic_functions.h"
-#include <stdarg.h>
 /**
 * _puts_recursion - prints string recursively
 * @s: ptr to string
@@ -10,7 +9,7 @@ void _puts_recursion(const char *s)
 	{
 		return;
 	}
-	_putchar(*s);
+	putchar(*s);
 	s++;
 	_puts_recursion(s);
 }
@@ -23,21 +22,33 @@ void print_strings(const char *separator, const unsigned int n, ...)
 {
 	unsigned int i = 0;
 	va_list strings;
+	va_list strings2;
 	char *str;
 
 	va_start(strings, n);
+	va_copy(strings2, strings);
 	while (i < n)
 	{
 		str = va_arg(strings, char *);
 		if (str == NULL)
+		{
 			_puts_recursion("(nil)");
-		else
-			_puts_recursion(str);
+			putchar('\n');
+			return;
+		}
+		i++;	}
+
+	i = 0;
+	while (i < n)
+	{
+		str = va_arg(strings2, char *);
+		_puts_recursion(str);
 
 		if (i != (n - 1))
 			_puts_recursion(separator);
 		i++;
 	}
 	va_end(strings);
-	_putchar('\n');
+	va_end(strings2);
+	putchar('\n');
 }
