@@ -1,5 +1,4 @@
-#include "variadic_functions.h" 
-#include <stdarg.h>
+#include "variadic_functions.h"
 /**
 * print_number - takes int print them as characters
 * @n: int argument
@@ -43,7 +42,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	while (i < n)
 	{
 		print_number(va_arg(numbers, int));
-		if (i != (n - 1))
+		if (i != (n - 1) && separator != NULL)
 			_puts_recursion(separator);
 		i++;
 	}
