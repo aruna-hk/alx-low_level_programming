@@ -44,7 +44,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		str = va_arg(strings2, char *);
 		_puts_recursion(str);
 
-		if (i != (n - 1))
+		if (i != (n - 1) && separator != NULL)
 			_puts_recursion(separator);
 		i++;
 	}
