@@ -10,7 +10,7 @@ void _puts_recursion(const char *s)
 	{
 		return;
 	}
-	putchar(*s);
+	_putchar(*s);
 	s++;
 	_puts_recursion(s);
 }
@@ -23,15 +23,21 @@ void print_strings(const char *separator, const unsigned int n, ...)
 {
 	unsigned int i = 0;
 	va_list strings;
+	char *str;
 
 	va_start(strings, n);
 	while (i < n)
 	{
-		_puts_recursion(va_arg(strings, char *));
+		str = va_arg(strings, char *);
+		if (str == NULL)
+			_puts_recursion("(nil)");
+		else
+			_puts_recursion(str);
+
 		if (i != (n - 1))
 			_puts_recursion(separator);
 		i++;
 	}
 	va_end(strings);
-	putchar('\n');
+	_putchar('\n');
 }
