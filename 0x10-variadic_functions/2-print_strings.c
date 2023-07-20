@@ -25,6 +25,8 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	va_list strings2;
 	char *str;
 
+	if (n == 0)
+		return;
 	va_start(strings, n);
 	va_copy(strings2, strings);
 	while (i < n)
