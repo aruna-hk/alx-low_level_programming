@@ -23,13 +23,14 @@ void print_all(const char * const format, ...)
 				printf("%d", va_arg(args1, int));
 				break;
 			case 'f':
-			printf("%f", va_arg(args1, double));
+				printf("%f", va_arg(args1, double));
 				break;
 			case 's':
 				str = va_arg(args1, char *);
-				if (!str)
+				if (str == NULL)
 					str = "(nil)";
-				printf("%s", str);
+				else
+					printf("%s", str);
 				break;
 			default:
 				continue;
