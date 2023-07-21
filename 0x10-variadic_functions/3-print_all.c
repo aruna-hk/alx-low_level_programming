@@ -7,7 +7,7 @@
 void print_all(const char * const format, ...)
 {
 	unsigned int i = 0;
-	char *str;
+	char *str = NULL;
 
 	va_list args1;
 
