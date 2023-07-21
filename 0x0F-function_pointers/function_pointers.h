@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "3-calc.h"
 void array_iterator(int *array, size_t size, void (*action)(int));
 int int_index(int *array, int size, int (*cmp)(int));
 int _putchar(char c);
