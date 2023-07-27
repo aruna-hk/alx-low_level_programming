@@ -6,7 +6,7 @@
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
- */
+*/
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
@@ -18,7 +18,9 @@ int _putchar(char c)
 void print_number(size_t n)
 {
 	if (n / 10)
+	{
 		print_number(n / 10);
+	}
 	_putchar(n % 10 + '0');
 }
 /**
@@ -37,9 +39,9 @@ void _puts_recursion(char *s)
 }
 /**
  * print_list - print content of linked list and
- * return the number of elements
+ * return the number of nodes
  * @h: list pinter
- * Return: nu,mber of elements is the list
+ * Return: number of nodes
  */
 size_t print_list(const list_t *h)
 {
