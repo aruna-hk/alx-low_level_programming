@@ -1,5 +1,4 @@
 #include "lists.h"
-#include <stdio.h>
 /**
 * delete_nodeint_at_index - delete node at give index
 * @head: ptr to head double
@@ -28,7 +27,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		free(temp);
 		return (1);
 	}
-	if (nodes < (index + 1))
+	if (index >= nodes)
 		return (-1);
 	while (temp != NULL)
 	{
