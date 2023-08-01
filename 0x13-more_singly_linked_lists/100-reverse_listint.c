@@ -2,17 +2,15 @@
 /**
 * reverse_listint - reverse the linked list
 * @head: head ptr to existing list
-* Return: ptr to list
+* Return: ptr to reversed list
 */
 listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *temp = *head;
 	listint_t *prev = NULL;
 	listint_t *next;
+	listint_t *temp = *head;
 
-	if (*head == NULL)
-		return (NULL);
-	while (temp->next != NULL)
+	while (temp != NULL)
 	{
 		next = temp->next;
 		temp->next = prev;
