@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 /**
 * delete_nodeint_at_index - delete node at give index
 * @head: ptr to head double
@@ -8,11 +9,18 @@
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 	unsigned int count = 0;
-	listint_t *temp = *head;
+	unsigned int nodes = 0;
+	listint_t *temp = NULL;
 	listint_t *temp2 = NULL;
 
 	if (head == NULL || *head == NULL)
 		return (-1);
+	temp = *head;
+	while (temp != NULL)
+	{
+		nodes++;
+		temp = temp->next;
+	}
 	temp = *head;
 	if (index == 0)
 	{
@@ -20,6 +28,8 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		free(temp);
 		return (1);
 	}
+	if (nodes < (index + 1))
+		return (-1);
 	while (temp != NULL)
 	{
 		if (count == index - 1)
@@ -29,10 +39,10 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 				return (-1);
 			temp->next = temp2->next;
 			free(temp2);
-			return (1);
+			break;
 		}
 		count++;
 		temp = temp->next;
 	}
-	return (-1);
+	return (1);
 }
