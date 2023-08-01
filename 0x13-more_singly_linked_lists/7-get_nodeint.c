@@ -22,7 +22,9 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 
 	temp = head;
 	if (index >= nodes)
-		return (NULL);
+	{
+		exit(0);
+	}
 
 	while (temp->next != NULL)
 	{
