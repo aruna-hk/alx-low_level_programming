@@ -2,20 +2,19 @@
 /**
 * pop_listint -remove 1st node of the list
 * @head: pointer to the list
-* Return: ptr to new head
+* Return: popped item;
 */
 int pop_listint(listint_t **head)
 {
-	listint_t *tmp;
-	int np;
+	int n;
+	listint_t *temp;
 
-	if (head == NULL || *head == NULL)
-	{
+	if (head == NULL)
 		return (0);
-	}
-	np = (*head)->n;
-	tmp = (*head)->next;
-	free(*head);
-	*head = tmp;
-	return (np);
+
+	n = (*head)->n;
+	temp = *head;
+	(*head) = (*head)->next;
+	free(temp);
+	return (n);
 }
