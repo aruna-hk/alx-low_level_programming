@@ -14,8 +14,16 @@ size_t print_listint_safe(const listint_t *head)
 	unsigned int i;
 	size_t nodes = 0;
 
-	if (head == NULL || head->next == NULL)
+	if (head == NULL)
+	{
+		printf("(nill");
 		return (0);
+	}
+	if (head != NULL && head->next == NULL)
+	{
+		printf("[%p] %d\n",(void *) head, head->n);
+		return (nodes++);
+	}
 	while (temp != NULL)
 	{
 		for (i = 0; i < nodes; i++)
