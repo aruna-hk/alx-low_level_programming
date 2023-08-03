@@ -1,14 +1,14 @@
 #include "main.h"
 /**
-* get_endianness - get order of storing in a computer
-* Return: 0-big endian,1-little endian
+* get_endianness - storage order of data in mem
+* Return: 0-big endian/1-litte indian
 */
 int get_endianness(void)
 {
-	int endianess = 51;
-	char *begin = (char *) &endianess;
+	int num = 8;
+	char *ptr = (char *) &num;
 
-	if (*begin == 51)
-		return (0);
-	return (1);
+	if (ptr[0] == num)
+		return (1);
+	return (0);
 }
