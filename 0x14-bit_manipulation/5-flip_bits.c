@@ -10,8 +10,12 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	unsigned int default_mask = 1;
 	unsigned int i = 0;
 	unsigned int count = 0;
-	unsigned int difference = n ^ m;
+	unsigned int difference;
+	
+	if (n == m)
+		return (0);
 
+	difference = n ^ m;
 	while (i < (sizeof(unsigned int) * 8))
 	{
 		if ((difference & (default_mask << i)) != 0)
