@@ -14,7 +14,7 @@ void print_binary(unsigned long int n)
 		_putchar('0');
 		return;
 	}
-	while (i < 32)
+	while (i < (sizeof(unsigned int) * 8))
 	{
 		if ((default_n << i) > n)
 		{
