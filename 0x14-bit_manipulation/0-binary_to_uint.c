@@ -1,5 +1,21 @@
 #include "main.h"
-#include <string.h>
+/**
+* _strlen - check string legthn
+* @s: pointer to array of chaacters
+* Return: len-length of the string
+*/
+int _strlen(const char *s)
+{
+	int len = 0;
+
+	while (*s != '\0')
+	{
+		len = len + 1;
+		s++;
+	}
+	return (len);
+}
+
 /**
 * binary_to_uint - convert binary to unsigned int
 * @b: string of bits
@@ -15,10 +31,10 @@ unsigned int binary_to_uint(const char *b)
 
 	if (b == NULL)
 		return (0);
-	str = malloc(strlen(b) + 1);
+	str = malloc(_strlen(b) + 1);
 	if (str == NULL)
 		return (0);
-	characters = strlen(b) - 1;
+	characters = _strlen(b) - 1;
 	while (characters >= 0)
 	{
 		str[i] = b[characters];
