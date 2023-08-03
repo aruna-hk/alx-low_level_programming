@@ -1,39 +1,39 @@
 #include "main.h"
 /**
-* print_binary -- print binary representation of number
-* @n: interger to convert
+* print_binary - print binary of unsigned int
+* @n: int arguement
 */
 void print_binary(unsigned long int n)
 {
 	unsigned int i = 0;
-	unsigned int default_n = 1;
-	int power = 0;
+
+	unsigned int long default_n = 1;
+
+	unsigned int bits = (sizeof(unsigned long int) * 8) - 1;
 
 	if (n == 0)
 	{
 		_putchar('0');
 		return;
 	}
-	while (i < (sizeof(unsigned long int) * 8))
+
+	while (((default_n << i) <= n) && (i < (sizeof(unsigned long int) * 8)))
 	{
-		if ((default_n << i) > n)
-		{
-			power = i - 1;
-			break;
-		}
 		i++;
 	}
-	while (power >= 0)
+
+	while (i > 0 && ((default_n << i) != (default_n << bits)))
 	{
-		if ((default_n << power) > n)
+		if ((default_n << (i - 1)) > n)
 		{
 			_putchar('0');
 		}
 		else
 		{
-			n -= default_n << power;
 			_putchar('1');
+			n -= default_n << (i - 1);
 		}
-		power--;
+		i--;
 	}
 }
+
