@@ -20,8 +20,8 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 		}
 		difference = difference & (~(default_mask << i));
 		if (difference == 0)
-			return (count);
+			break;
 		i++;
 	}
-	return (0);
+	return (count);
 }
