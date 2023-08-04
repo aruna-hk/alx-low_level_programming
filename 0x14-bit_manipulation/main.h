@@ -1,6 +1,7 @@
 #ifndef BIT_H
 #define BIT_H
 #include <unistd.h>
+#include <stdlib.h>
 int _strlen(const char *s);
 unsigned int binary_to_uint(const char *b);
 int get_endianness(void);
