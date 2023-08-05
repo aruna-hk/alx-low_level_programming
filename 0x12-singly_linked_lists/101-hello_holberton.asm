@@ -1,4 +1,5 @@
 	.file	"101-hello_holberton.c"
+	.intel_syntax noprefix
 	.text
 	.globl	_putchar
 	.type	_putchar, @function
@@ -6,18 +7,18 @@ _putchar:
 .LFB6:
 	.cfi_startproc
 	endbr64
-	pushq	%rbp
+	push	rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
-	movq	%rsp, %rbp
+	mov	rbp, rsp
 	.cfi_def_cfa_register 6
-	subq	$16, %rsp
-	movl	%edi, %eax
-	movb	%al, -4(%rbp)
-	leaq	-4(%rbp), %rax
-	movl	$1, %edx
-	movq	%rax, %rsi
-	movl	$1, %edi
+	sub	rsp, 16
+	mov	eax, edi
+	mov	BYTE PTR -4[rbp], al
+	lea	rax, -4[rbp]
+	mov	edx, 1
+	mov	rsi, rax
+	mov	edi, 1
 	call	write@PLT
 	leave
 	.cfi_def_cfa 7, 8
@@ -31,29 +32,29 @@ _puts_recursion:
 .LFB7:
 	.cfi_startproc
 	endbr64
-	pushq	%rbp
+	push	rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
-	movq	%rsp, %rbp
+	mov	rbp, rsp
 	.cfi_def_cfa_register 6
-	subq	$16, %rsp
-	movq	%rdi, -8(%rbp)
-	movq	-8(%rbp), %rax
-	movzbl	(%rax), %eax
-	testb	%al, %al
+	sub	rsp, 16
+	mov	QWORD PTR -8[rbp], rdi
+	mov	rax, QWORD PTR -8[rbp]
+	movzx	eax, BYTE PTR [rax]
+	test	al, al
 	jne	.L4
-	movl	$10, %edi
+	mov	edi, 10
 	call	_putchar
 	jmp	.L3
 .L4:
-	movq	-8(%rbp), %rax
-	movzbl	(%rax), %eax
-	movsbl	%al, %eax
-	movl	%eax, %edi
+	mov	rax, QWORD PTR -8[rbp]
+	movzx	eax, BYTE PTR [rax]
+	movsx	eax, al
+	mov	edi, eax
 	call	_putchar
-	addq	$1, -8(%rbp)
-	movq	-8(%rbp), %rax
-	movq	%rax, %rdi
+	add	QWORD PTR -8[rbp], 1
+	mov	rax, QWORD PTR -8[rbp]
+	mov	rdi, rax
 	call	_puts_recursion
 .L3:
 	leave
@@ -72,18 +73,18 @@ main:
 .LFB8:
 	.cfi_startproc
 	endbr64
-	pushq	%rbp
+	push	rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
-	movq	%rsp, %rbp
+	mov	rbp, rsp
 	.cfi_def_cfa_register 6
-	subq	$16, %rsp
-	leaq	.LC0(%rip), %rax
-	movq	%rax, -8(%rbp)
-	movq	-8(%rbp), %rax
-	movq	%rax, %rdi
+	sub	rsp, 16
+	lea	rax, .LC0[rip]
+	mov	QWORD PTR -8[rbp], rax
+	mov	rax, QWORD PTR -8[rbp]
+	mov	rdi, rax
 	call	_puts_recursion
-	movl	$0, %eax
+	mov	eax, 0
 	leave
 	.cfi_def_cfa 7, 8
 	ret
