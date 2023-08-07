@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
 * _memset - function fills the first n bytes destination with char provided
 * @s:to be filled by b--bytes
@@ -91,9 +90,7 @@ int copy(int from, char *fname, char *ptr)
 	}
 	if (dest == -1)
 	{
-		_puts_recursion("Error: Can't write to ");
-		_puts_recursion(fname);
-		_putchar('\n');
+		dprintf(3, "Error: Can't write to %s\n", fname);
 		exit(99);
 	}
 	buffer = malloc(BUFFER);
@@ -105,7 +102,7 @@ int copy(int from, char *fname, char *ptr)
 		if (nread == -1)
 		{
 			free(buffer);
-			printf("Error: Can't read from file %s \n", ptr);
+			dprintf(3, "Error: Can't read from file %s \n", ptr);
 			exit(98);
 		}
 		nwrite = write(dest, buffer, nread);
@@ -130,28 +127,22 @@ int copy(int from, char *fname, char *ptr)
 int main(int argc, char **argv)
 {
 	int fd1, fd2, v, j;
-	char *errorstring = "Usage: cp file_from file_to ";
 
 	if (argc != 3)
 	{
-		_puts_recursion(errorstring);
-		_putchar('\n');
+		dprintf(3, "Error: Can't read from file\n");
 		exit(97);
 	}
 	fd1 = open(argv[1], O_RDONLY);
 	if (fd1 == -1)
 	{
-		_puts_recursion("Error: Can't read from file ");
-		_puts_recursion(argv[1]);
-		_putchar('\n');
+		dprintf(3, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	fd2 = copy(fd1, argv[2], argv[1]);
 	if (fd2 == -1)
 	{
-		_puts_recursion("Error: Can't write to ");
-		_puts_recursion(argv[2]);
-		_putchar('\n');
+		dprintf(3, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 	v = close(fd1);
@@ -160,9 +151,15 @@ int main(int argc, char **argv)
 	{
 		_puts_recursion("Error: Can't close fd ");
 		if (v == -1)
+		{
 			print_number(fd1);
+			_putchar('\n');
+		}
 		if (j == -1)
+		{
+			_putchar('\n');
 			print_number(fd2);
+		}
 		exit(100);
 	}
 	exit(EXIT_SUCCESS);

@@ -3,6 +3,7 @@
 #define BUFFER 1024
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <fcntl.h>
 int _putchar(char c);
 void print_number(int n);
