@@ -90,26 +90,30 @@ int copy(int from, char *fname, char *ptr)
 	}
 	if (dest == -1)
 	{
-		dprintf(3, "Error: Can't write to %s\n", fname);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fname);
 		exit(99);
 	}
 	buffer = malloc(BUFFER);
 	if (buffer == NULL)
-		return (-1);
+	{
+		dprintf(STDERR_FILENO, "Error: write to %s \n", fname);
+		exit(99);
+	}
 	nread = read(from, buffer, BUFFER);
 	while (nread != 0)
 	{
 		if (nread == -1)
 		{
 			free(buffer);
-			dprintf(3, "Error: Can't read from file %s \n", ptr);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s \n", ptr);
 			exit(98);
 		}
 		nwrite = write(dest, buffer, nread);
 		if (nwrite != nread)
 		{
 			free(buffer);
-			return (-1);
+			dprintf(STDERR_FILENO, "Error: write to %s \n", fname);
+			exit(99);
 		}
 		_memset(buffer, 0, BUFFER);
 		nread = read(from, buffer, BUFFER);
@@ -130,35 +134,27 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		dprintf(3, "Error: Can't read from file\n");
+		dprintf(STDERR_FILENO, "Error: Can't read from file\n");
 		exit(97);
 	}
 	fd1 = open(argv[1], O_RDONLY);
 	if (fd1 == -1)
 	{
-		dprintf(3, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	fd2 = copy(fd1, argv[2], argv[1]);
-	if (fd2 == -1)
-	{
-		dprintf(3, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
-	}
 	v = close(fd1);
 	j = close(fd2);
 	if (v == -1 || j == -1)
 	{
-		_puts_recursion("Error: Can't close fd ");
 		if (v == -1)
 		{
-			print_number(fd1);
-			_putchar('\n');
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
 		}
 		if (j == -1)
 		{
-			_putchar('\n');
-			print_number(fd2);
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
 		}
 		exit(100);
 	}
