@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdio.h>
-
 /**
 * _memset - function fills the first n bytes destination with char provided
 * @s:to be filled by b--bytes
@@ -77,18 +76,15 @@ void _puts_recursion(char *s)
 * copy - copy from one file to another
 * @from: - source file
 * @fname: - file name
+* @ptr: name of src file;
 * Return: 1-sucess,-1 failure;
 */
-int copy(int from, char *fname)
+int copy(int from, char *fname, char *ptr)
 {
-	int dest;
+	int dest, nread, nwrite;
 	char *buffer;
-	int nread;
-	int nwrite;
 
-	buffer = malloc(BUFFER);
 	dest = open(fname, O_WRONLY | O_TRUNC);
-
 	if (dest == -1)
 	{
 		dest = open(fname, O_CREAT | O_WRONLY | O_TRUNC, 0664);
@@ -98,19 +94,30 @@ int copy(int from, char *fname)
 		_puts_recursion("Error: Can't write to ");
 		_puts_recursion(fname);
 		_putchar('\n');
-		return (-1);
+		exit(99);
 	}
+	buffer = malloc(BUFFER);
+	if (buffer == NULL)
+		return (-1);
 	nread = read(from, buffer, BUFFER);
 	while (nread != 0)
 	{
 		if (nread == -1)
-			return (-1);
+		{
+			free(buffer);
+			printf("Error: Can't read from file %s \n", ptr);
+			exit(98);
+		}
 		nwrite = write(dest, buffer, nread);
 		if (nwrite != nread)
+		{
+			free(buffer);
 			return (-1);
+		}
 		_memset(buffer, 0, BUFFER);
 		nread = read(from, buffer, BUFFER);
 	}
+	free(buffer);
 	return (dest);
 }
 /**
@@ -139,7 +146,7 @@ int main(int argc, char **argv)
 		_putchar('\n');
 		exit(98);
 	}
-	fd2 = copy(fd1, argv[2]);
+	fd2 = copy(fd1, argv[2], argv[1]);
 	if (fd2 == -1)
 	{
 		_puts_recursion("Error: Can't write to ");
@@ -151,13 +158,12 @@ int main(int argc, char **argv)
 	j = close(fd2);
 	if (v == -1 || j == -1)
 	{
-		_puts_recursion("Error: Can't close fd FD_VALUE ");
+		_puts_recursion("Error: Can't close fd ");
 		if (v == -1)
 			print_number(fd1);
 		if (j == -1)
 			print_number(fd2);
 		exit(100);
 	}
-	_putchar('\n');
-	return (0);
+	exit(EXIT_SUCCESS);
 }
