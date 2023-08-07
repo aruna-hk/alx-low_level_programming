@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
 * read_textfile - read ascii file
 * @filename: - file to read
@@ -20,7 +21,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (read_to_buffer == -1)
 		return (0);
 	n = write(1, buffer, read_to_buffer);
-	if (n == -1)
+	if (n != read_to_buffer)
 		return (-1);
 	return (n);
 }
