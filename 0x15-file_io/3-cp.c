@@ -119,7 +119,7 @@ int copy(int from, char *fname, char *ptr)
 		nread = read(from, buffer, BUFFER);
 	}
 	free(buffer);
-	return (dest);
+	return (close(dest));
 }
 /**
 * main - main entry point
@@ -130,7 +130,7 @@ int copy(int from, char *fname, char *ptr)
 */
 int main(int argc, char **argv)
 {
-	int fd1, fd2, v, j;
+	int fd1, fd2;
 
 	if (argc != 3)
 	{
@@ -144,18 +144,15 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 	fd2 = copy(fd1, argv[2], argv[1]);
-	v = close(fd1);
-	j = close(fd2);
-	if (v == -1 || j == -1)
+	fd2 = -1;
+	if (fd2 == -1)
 	{
-		if (v == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
-		}
-		if (j == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
-		}
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
+		exit(100);
+	}
+	if (close(fd1) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
 		exit(100);
 	}
 	exit(EXIT_SUCCESS);
