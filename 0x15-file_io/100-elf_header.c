@@ -1,27 +1,11 @@
 #include <fcntl.h>
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #define DEFAULT_PAD 35
 #define FILE_ST 50
 void padding(int pad);
-/**
-* _strlen - check string legthn
-* @s: pointer to array of chaacters
-* Return: len-length of the string
-*/
-int _strlen(char *s)
-{
-	int len = 0;
-
-	while (*s != '\0')
-	{
-		len = len + 1;
-		s++;
-	}
-	return (len);
-}
-
 /**
 * _entry_point - address of the start of a prog in a file
 * @arr: arr containg file bytes content
@@ -30,8 +14,8 @@ void _entry_point(char *arr)
 {
 	int add, add2;
 
-	printf("Entry point address:");
-	padding(_strlen("Entry point address:"));
+	dprintf(STDOUT_FILENO, "Entry point address:");
+	padding(strlen("Entry point address:"));
 	if ((int) arr[4] == 1)
 	{
 		add = ((int)arr[24]) | ((int)arr[25]) | ((int) arr[26]) | ((int) arr[27]);
@@ -41,9 +25,9 @@ void _entry_point(char *arr)
 	{
 		add = (int) arr[24] | (int) arr[25] | (int) arr[26] | (int) arr[27];
 		add2 = (int) arr[28] | (int) arr[29] | (int) arr[30] | (int) arr[31];
-		printf("0x%x", (add | add2));
+		dprintf(STDOUT_FILENO, "0x%x", (add | add2));
 	}
-	printf("\n");
+	dprintf(STDOUT_FILENO, "\n");
 }
 /**
 * type_ - identify the type of elf file
@@ -51,36 +35,36 @@ void _entry_point(char *arr)
 */
 void type_(int arg)
 {
-	printf("Type:");
-	padding(_strlen("Type:"));
+	dprintf(STDOUT_FILENO, "Type:");
+	padding(strlen("Type:"));
 
 	switch (arg)
 	{
 		case 0:
-			printf("NONE (Unknown)");
+			dprintf(STDOUT_FILENO, "NONE (Unknown)");
 			break;
 		case 1:
-			printf("REL (Relocatable file)");
+			dprintf(STDOUT_FILENO, "REL (Relocatable file)");
 			break;
 		case 2:
-			printf("EXEC (Executable file)");
+			dprintf(STDOUT_FILENO, "EXEC (Executable file)");
 			break;
 		case 3:
-			printf("DYN (Shared object)");
+			dprintf(STDOUT_FILENO, "DYN (Shared object)");
 			break;
 		case 4:
-			printf("CORE (Core file)");
+			dprintf(STDOUT_FILENO, "CORE (Core file)");
 			break;
 		case 65279:
 		case 65024:
-			printf("LOOS (Reserved)");
+			dprintf(STDOUT_FILENO, "LOOS (Reserved)");
 			break;
 		case 65280:
 		case 65535:
-			printf("LOPROC (Reserved)");
+			dprintf(STDOUT_FILENO, "LOPROC (Reserved)");
 			break;
 	}
-	printf("\n");
+	dprintf(STDOUT_FILENO, "\n");
 }
 /**
 * read_head- head of elf file
@@ -101,21 +85,21 @@ void read_head(char *elf_header)
 		flag = 1;
 	if (flag == 1)
 	{
-		printf("elf_read:Erro not an elf file\n");
+		dprintf(STDERR_FILENO, "elf_read:Erro nota an elf file\n");
 		exit(98);
 	}
-	printf("Magic:   ");
+	dprintf(STDOUT_FILENO, "Magic:   ");
 	while (i < 16)
 	{
-		printf("%02x ", *elf_header);
+		dprintf(STDOUT_FILENO, "%02x ", *elf_header);
 		i++;
 		elf_header++;
 	}
-	printf("\n");
+	dprintf(STDOUT_FILENO, "\n");
 }
 /**
 * padding - add space to format output
-* @pad: _strlen of already occupied space
+* @pad: strlen of already occupied space
 */
 void padding(int pad)
 {
@@ -123,7 +107,7 @@ void padding(int pad)
 
 	while (i > 0)
 	{
-		printf(" ");
+		dprintf(STDOUT_FILENO, " ");
 		i--;
 	}
 }
@@ -133,15 +117,15 @@ void padding(int pad)
 */
 void print_class(int n)
 {
-	printf("Class:");
-	padding(_strlen("Class:"));
+	dprintf(STDOUT_FILENO, "Class:");
+	padding(strlen("Class:"));
 	if (n == 1)
-		printf("ELF32");
+		dprintf(STDOUT_FILENO, "ELF32");
 	else if (n == 2)
-		printf("ELF64");
+		dprintf(STDOUT_FILENO, "ELF64");
 	else
-		printf("ELFNONE");
-	printf("\n");
+		dprintf(STDOUT_FILENO, "ELFNONE");
+	dprintf(STDOUT_FILENO, "\n");
 }
 /**
 * print_data - print data representation in memenory
@@ -149,15 +133,15 @@ void print_class(int n)
 */
 void print_data(int p)
 {
-	printf("Data:");
-	padding(_strlen("Data:"));
+	dprintf(STDOUT_FILENO, "Data:");
+	padding(strlen("Data:"));
 	if (p == 1)
-		printf("2's complement, little endian");
+		dprintf(STDOUT_FILENO, "2's complement, little endian");
 	else if (p == 2)
-		printf("2's complement, little endian");
+		dprintf(STDOUT_FILENO, "2's complement, little endian");
 	else
-		printf("ELFDATANONE");
-	printf("\n");
+		dprintf(STDOUT_FILENO, "ELFDATANONE");
+	dprintf(STDOUT_FILENO, "\n");
 }
 /**
 * _version - version of application binary interface
@@ -165,9 +149,9 @@ void print_data(int p)
 */
 void _version(int m)
 {
-	printf("ABI Version:");
-	padding(_strlen("ABI Version:"));
-	printf("%d\n", m);
+	dprintf(STDOUT_FILENO, "ABI Version:");
+	padding(strlen("ABI Version:"));
+	dprintf(STDOUT_FILENO, "%d\n", m);
 }
 /**
 * _os_abi - operationg system application binary interface
@@ -178,35 +162,35 @@ void _os_abi(int os)
 	switch (os)
 	{
 		case 0:
-			printf("UNIX - System V");
+			dprintf(STDOUT_FILENO, "UNIX - System V");
 			break;
 		case 1:
-			printf("UNIX - HP_UX");
+			dprintf(STDOUT_FILENO, "UNIX - HP_UX");
 			break;
 		case 2:
-			printf("UNIX - NetBSD");
+			dprintf(STDOUT_FILENO, "UNIX - NetBSD");
 			break;
 		case 3:
-			printf("UNIX - Linux");
+			dprintf(STDOUT_FILENO, "UNIX - Linux");
 			break;
 		case 4:
-			printf("UNIX - GNU Hurd");
+			dprintf(STDOUT_FILENO, "UNIX - GNU Hurd");
 			break;
 		case 5:
-			printf("UNIX - Solaris");
+			dprintf(STDOUT_FILENO, "UNIX - Solaris");
 			break;
 		case 6:
-			printf("UNIX - AIX");
+			dprintf(STDOUT_FILENO, "UNIX - AIX");
 			break;
 		case 7:
-			printf("UNIX - IRIX");
+			dprintf(STDOUT_FILENO, "UNIX - IRIX");
 			break;
 		case 8:
-			printf("UNIX - FreeBSD");
+			dprintf(STDOUT_FILENO, "UNIX - FreeBSD");
 			break;
 
 	}
-	printf("\n");
+	dprintf(STDOUT_FILENO, "\n");
 }
 /**
 * _os2_abi - identifies machine to which elf is compiled to run on
@@ -217,40 +201,40 @@ void _os2_abi(int os2)
 	switch (os2)
 	{
 		case 9:
-			printf("UNIX - Tru64");
+			dprintf(STDOUT_FILENO, "UNIX - Tru64");
 			break;
 		case 10:
-			printf("UNIX - Novell Modesto");
+			dprintf(STDOUT_FILENO, "UNIX - Novell Modesto");
 			break;
 		case 11:
-			printf("UNIX - IRIX");
+			dprintf(STDOUT_FILENO, "UNIX - IRIX");
 			break;
 		case 12:
-			printf("UNIX - OpenBSD");
+			dprintf(STDOUT_FILENO, "UNIX - OpenBSD");
 			break;
 		case 13:
-			printf("UNIX - OpenVMS");
+			dprintf(STDOUT_FILENO, "UNIX - OpenVMS");
 			break;
 		case 14:
-			printf("UNIX - NonStop Kernel");
+			dprintf(STDOUT_FILENO, "UNIX - NonStop Kernel");
 			break;
 		case 15:
-			printf("UNIX - AROS");
+			dprintf(STDOUT_FILENO, "UNIX - AROS");
 			break;
 		case 16:
-			printf("UNIX - FenixOS");
+			dprintf(STDOUT_FILENO, "UNIX - FenixOS");
 			break;
 		case 17:
-			printf("UNIX - Nuxi CloudABI");
+			dprintf(STDOUT_FILENO, "UNIX - Nuxi CloudABI");
 			break;
 		case 18:
-			printf("UNIX - Stratus Technologies OpenVOS");
+			dprintf(STDOUT_FILENO, "UNIX - Stratus Technologies OpenVOS");
 			break;
 		default:
-			printf("<unknown: %d>", os2);
+			dprintf(STDOUT_FILENO, "<unknown: %d>", os2);
 			break;
 	}
-	printf("\n");
+	dprintf(STDOUT_FILENO, "\n");
 }
 /**
 * _version_elf - executable file version
@@ -258,12 +242,12 @@ void _os2_abi(int os2)
 */
 void _version_elf(int elfv)
 {
-	printf("Version:");
-	padding(_strlen("Version:"));
+	dprintf(STDOUT_FILENO, "Version:");
+	padding(strlen("Version:"));
 	if (elfv == 0)
-		printf("%d (invalid)\n", elfv);
+		dprintf(STDOUT_FILENO, "%d (invalid)\n", elfv);
 	else
-		printf("%d (current)\n", elfv);
+		dprintf(STDOUT_FILENO, "%d (current)\n", elfv);
 }
 /**
 * main - entry
@@ -280,13 +264,13 @@ int main(int args, char **arglist)
 
 	if (args < 2)
 	{
-		printf("elf_header elf_filename\n");
+		dprintf(STDERR_FILENO, "elf_header elf_filename\n");
 		exit(98);
 	}
 	fd = open(arglist[1], O_RDONLY);
 	if (fd == -1)
 	{
-		printf("ERRO: USAGE VALID FILE \n");
+		dprintf(STDERR_FILENO, "ERRO: USAGE VALID FILE \n");
 		exit(98);
 	}
 	buffer = malloc(FILE_ST);
@@ -299,8 +283,8 @@ int main(int args, char **arglist)
 	print_class(buffer[4]);
 	print_data(buffer[5]);
 	_version_elf((int)buffer[6]);
-	printf("OS/ABI:");
-	padding(_strlen("OS/ABI:"));
+	dprintf(STDOUT_FILENO, "OS/ABI:");
+	padding(strlen("OS/ABI:"));
 	os_ab = (int) buffer[7];
 	if (os_ab < 9)
 		_os_abi(os_ab);
@@ -309,6 +293,5 @@ int main(int args, char **arglist)
 	_version(buffer[8]);
 	type_((int)buffer[16] | (int)buffer[17]);
 	_entry_point(buffer);
-	free(buffer);
 	return (0);
 }
