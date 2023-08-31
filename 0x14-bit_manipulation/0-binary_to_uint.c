@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
 * _strlen - check string legthn
 * @s: pointer to array of chaacters
@@ -23,11 +24,10 @@ int _strlen(const char *s)
 */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int i = 0;
 	unsigned int default_num = 1;
 	unsigned int num = 0;
 	int mov;
-	int s_len;
+	unsigned int s_len;
 
 	if (b == NULL)
 		return (0);

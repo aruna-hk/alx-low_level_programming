@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
 * get_endianness - storage order of data in mem
 * Return: 0-big endian/1-litte indian
@@ -12,3 +11,4 @@ int get_endianness(void)
 		return (1);
 	return (0);
 }
+
