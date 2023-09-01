@@ -7,9 +7,9 @@
 */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned int default_mask = 1;
+	unsigned long int default_mask = 1;
 	unsigned int count = 0;
-	unsigned int x_or = n ^ m;
+	unsigned  long int x_or = n ^ m;
 
 	unsigned int i = 0;
 

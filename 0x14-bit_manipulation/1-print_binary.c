@@ -5,11 +5,11 @@
 */
 void print_binary(unsigned long int n)
 {
-	unsigned int base = 1 << 31;
+	unsigned long int base = 1 << ((sizeof(unsigned int) * 8) - 1);
 
 	if (n == 0)
 	{
-		_putchar('0');
+		putchar('0');
 		return;
 	}
 	while ((base & n) == 0)
@@ -17,9 +17,9 @@ void print_binary(unsigned long int n)
 	while (base > 0)
 	{
 		if ((base & n) != 0)
-			_putchar('1');
+			putchar('1');
 		else
-			_putchar('0');
+			putchar('0');
 		base = base >> 1;
 	}
 }
