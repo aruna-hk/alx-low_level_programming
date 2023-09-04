@@ -12,11 +12,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	filedes = open(filename, O_RDONLY);
 	if (filedes == -1)
-	{
-		perror(filename);
 		return (0);
-	}
-	buffer = malloc(letters);
+	buffer = malloc(letters - 1);
 	nread = read(filedes, buffer, letters);
 	if (nread == -1)
 		return (0);
