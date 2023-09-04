@@ -10,10 +10,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	char *buffer;
 	int filedes, nread, nwrite;
 
+	if (filename == NULL)
+		return (0);
 	filedes = open(filename, O_RDONLY);
 	if (filedes == -1)
 		return (0);
 	buffer = malloc(letters - 1);
+	if (buffer == NULL)
+		return (0);
 	nread = read(filedes, buffer, letters);
 	if (nread == -1)
 		return (0);
