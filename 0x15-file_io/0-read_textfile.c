@@ -21,11 +21,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	nread = read(filedes, buffer, letters);
 	if (nread == -1)
 		return (0);
-
+	close(filedes);
 	nwrite = write(1, buffer, nread);
-	if (nwrite == -1 || nwrite != nread)
+	if (nwrite != nread)
 		return (0);
 	free(buffer);
-	close(filedes);
 	return (nwrite);
 }
