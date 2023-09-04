@@ -33,7 +33,6 @@ int cpy(int *fd_from, int *fd_to)
 int main(int arg, char **arglist)
 {
 	int fd_to, n, fd_from;
-	char *buffer;
 
 	if (arg != 3)
 	{
