@@ -9,6 +9,7 @@
 int cpy(int *fd_from, int *fd_to, char *name_from)
 {
 	int nread = 0;
+	int mn, mp;
 	int nwrite;
 	char *buffer;
 
@@ -19,7 +20,17 @@ int cpy(int *fd_from, int *fd_to, char *name_from)
 		if (nread == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", name_from);
-			exit(99);
+			mn = close(*fd_to);
+			mp = close(*fd_from);
+		if (mn == -1 || mp == -1)
+		{
+			if (mn)
+				dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", *fd_to);
+			if (mp)
+				dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", *fd_from);
+			exit(100);
+		}
+
 		}
 		if (nread == 0)
 			break;
@@ -38,7 +49,7 @@ int cpy(int *fd_from, int *fd_to, char *name_from)
 */
 int main(int arg, char **arglist)
 {
-	int fd_to, n, fd_from;
+	int fd_to, n, fd_from, mn, mp;
 
 	if (arg != 3)
 	{
@@ -63,14 +74,14 @@ int main(int arg, char **arglist)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", arglist[2]);
 		exit(99);
 	}
-	if (close(fd_to) == -1)
+	mn = close(fd_to);
+	mp = close(fd_from);
+	if (mn == -1 || mp == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
-		exit(100);
-	}
-	if (close(fd_from) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
+		if (mn)
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
+		if (mp)
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
 		exit(100);
 	}
 	return (0);
