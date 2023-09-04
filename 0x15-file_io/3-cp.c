@@ -3,23 +3,29 @@
 * cpy - copy from on file to another
 * @fd_from: from file descriptor
 * @fd_to: file to
+* @name_from: name of file from
 * Return: -1 failure /0- sucess
 */
-int cpy(int *fd_from, int *fd_to)
+int cpy(int *fd_from, int *fd_to, char *name_from)
 {
-	int nread, nwrite;
+	int nread = 0;
+	int nwrite;
 	char *buffer;
 
 	buffer = malloc(1024);
-	nread = read(*fd_from, buffer, 1024);
 	while (nread != -1 || nread != 0)
 	{
+		nread = read(*fd_from, buffer, 1024);
+		if (nread == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", name_from);
+			exit(99);
+		}
+		if (nread == 0)
+			break;
 		nwrite = write(*fd_to, buffer, nread);
 		if (nwrite == -1)
 			return (-1);
-		nread = read(*fd_from, buffer, 1024);
-		if (nread == 0)
-			break;
 	}
 	free(buffer);
 	return (0);
@@ -51,10 +57,10 @@ int main(int arg, char **arglist)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", arglist[2]);
 		exit(99);
 	}
-	n = cpy(&fd_from, &fd_to);
+	n = cpy(&fd_from, &fd_to, arglist[1]);
 	if (n == -1)
 	{
-		dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", arglist[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", arglist[2]);
 		exit(99);
 	}
 	if (close(fd_to) == -1)
