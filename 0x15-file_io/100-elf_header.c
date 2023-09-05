@@ -7,7 +7,6 @@
 */
 void _print_other(char *buf)
 {
-	int start_address = 0, i;
 	int n = (int) buf[15] | (int) buf[16];
 
 	dprintf(STDOUT_FILENO, "  Type:");
