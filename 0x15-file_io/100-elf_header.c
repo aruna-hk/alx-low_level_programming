@@ -26,20 +26,9 @@ void _print_other(char *buf)
 
 	dprintf(STDOUT_FILENO, "  Entry point address:");
 	padding("Entry point address:");
-	if ((int)buf[4] == 1)
-		start_address = (int)buf[23] | (int)buf[24] | (int)buf[26] | (int)buf[27];
-	else if ((int)buf[4] == 2)
-	{
-		i = 23;
-		{
-			while (i <= 30)
-			{
-				start_address = start_address | (int)buf[i];
-				i++;
-			}
-		}
-	}
-	dprintf(STDOUT_FILENO, "0x%x\n", start_address);
+	dprintf(STDOUT_FILENO, "0x");
+	dprintf(STDOUT_FILENO, "%02x", buf[24]);
+	dprintf(STDOUT_FILENO, "%02x\n", buf[25]);
 }
 /**
 * print_os_abi - prints operating system abi
