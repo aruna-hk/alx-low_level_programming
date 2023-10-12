@@ -45,7 +45,7 @@ int popend(dlistint_t **head)
 */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	int i;
+	unsigned int i;
 	dlistint_t *tmp;
 
 	if (*head == NULL)
