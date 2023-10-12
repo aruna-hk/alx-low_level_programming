@@ -9,7 +9,7 @@ size_t print_dlistint(const dlistint_t *h)
 	int i = 0;
 
 	if (h == NULL)
-		return (1);
+		return (i);
 	while (h != NULL)
 	{
 		dprintf(STDOUT_FILENO, "%d\n", h->n);
