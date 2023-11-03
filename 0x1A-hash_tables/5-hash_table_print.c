@@ -10,9 +10,8 @@ void hash_table_print(const hash_table_t *ht)
 	int wi = 0;
 
 	if (ht == NULL)
-		dprintf(STDOUT_FILENO, "{}\n");
-
-	dprintf(STDOUT_FILENO, "{");
+		printf("{}\n");
+	printf("{");
 	while (i < (ht->size))
 	{
 		bgn = ht->array[i];
@@ -22,16 +21,16 @@ void hash_table_print(const hash_table_t *ht)
 			continue;
 		}
 		if (wi != 0 && bgn != NULL)
-			dprintf(STDOUT_FILENO, ", ");
+			printf(", ");
 		while (bgn->next != NULL)
 		{
-			dprintf(STDOUT_FILENO, "'%s': '%s', ", bgn->key, bgn->value);
+			printf("'%s': '%s', ", bgn->key, bgn->value);
 			wi++;
 			bgn = bgn->next;
 		}
-		dprintf(STDOUT_FILENO, "'%s': '%s'", bgn->key, bgn->value);
+		printf("'%s': '%s'", bgn->key, bgn->value);
 		wi++;
 		i++;
 	}
-	dprintf(STDOUT_FILENO, "}\n");
+	printf("}\n");
 }
