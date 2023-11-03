@@ -7,9 +7,19 @@
 */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
+	hash_node_t *bgn;
 	unsigned long int indx = key_index((const unsigned char *)key, ht->size);
 
-	if (ht->array[indx] == NULL)
+	if (ht->array[indx] == NULL || ht == NULL || key == NULL)
 		return (NULL);
-	return (ht->array[indx]->value);
+	if (strcmp(key, ht->array[indx]->key) == 0)
+		return (ht->array[indx]->value);
+	bgn = ht->array[indx];
+	while (bgn != NULL)
+	{
+		if (strcmp(key, bgn->key) == 0)
+			return (bgn->value);
+		bgn = bgn->next;
+	}
+	return (NULL);
 }
