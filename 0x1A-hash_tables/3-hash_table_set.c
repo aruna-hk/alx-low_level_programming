@@ -1,43 +1,5 @@
 #include "hash_tables.h"
 /**
-* search_add - search if key already present
-* @ht: hash table ptr
-* @new: new node to add to hash table
-* @idx: index of hash tble to search
-*/
-void search_add(hash_table_t *ht, hash_node_t *new, unsigned long int idx)
-{
-	hash_node_t *bgn = ht->array[idx];
-
-	while (ht->array[idx]->next != NULL)
-	{
-		if (strcmp(ht->array[idx]->key, new->key) == 0)
-		{
-			free(ht->array[idx]->value);
-			ht->array[idx]->value = strdup(new->value);
-			free(new->key);
-			free(new->value);
-			free(new);
-			ht->array[idx] = bgn;
-			return;
-		}
-		ht->array[idx] = ht->array[idx]->next;
-	}
-	if (strcmp(ht->array[idx]->key, new->key) == 0)
-	{
-		free(ht->array[idx]->value);
-		ht->array[idx]->value = strdup(new->value);
-		free(new->key);
-		free(new->value);
-		free(new);
-		ht->array[idx] = bgn;
-		return;
-	}
-	ht->array[idx] = bgn;
-	new->next = ht->array[idx];
-	ht->array[idx] = new;
-}
-/**
 * hash_table_set - add value to the hash  table
 * @ht: pointer to hash table
 * @key: key to determine the index at which the value is to e stored
@@ -46,7 +8,7 @@ void search_add(hash_table_t *ht, hash_node_t *new, unsigned long int idx)
 */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *new;
+	hash_node_t *new, *bgn;
 	unsigned long int idx;
 
 	if (key == NULL || value == NULL || ht == NULL)
@@ -54,13 +16,30 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	idx = key_index((const unsigned char *) key, ht->size);
 	if (idx > ((ht->size) - 1))
 		return (0);
+	if (ht->array[idx] == NULL)
+	{
+		ht->array[idx] = malloc(sizeof(hash_node_t));
+		ht->array[idx]->key = strdup(key);
+		ht->array[idx]->value = strdup(value);
+		ht->array[idx]->next = NULL;
+		return (1);
+	}
+	bgn = ht->array[idx];
+	while (ht->array[idx] != NULL)
+	{
+		if (strcmp(ht->array[idx]->key, key) == 0)
+		{
+			ht->array[idx]->value = strdup(value);
+			ht->array[idx] = bgn;
+			return (1);
+		}
+		ht->array[idx] = ht->array[idx]->next;
+	}
+	ht->array[idx] = bgn;
 	new = malloc(sizeof(hash_node_t));
 	new->key = strdup(key);
 	new->value = strdup(value);
-	new->next = NULL;
-	if (ht->array[idx] == NULL)
-		ht->array[idx] = new;
-	else
-		search_add(ht, new, idx);
+	new->next = ht->array[idx];
+	ht->array[idx] = new;
 	return (1);
 }
