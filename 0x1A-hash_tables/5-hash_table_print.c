@@ -10,7 +10,7 @@ void hash_table_print(const hash_table_t *ht)
 	int wi = 0;
 
 	if (ht == NULL)
-		printf("{}\n");
+		return;
 	printf("{");
 	while (i < (ht->size))
 	{
