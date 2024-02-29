@@ -1,0 +1,19 @@
+.PHONE: all clean oclean fclean re
+CC = gcc
+NAME = school
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+RM = rm
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+all: $(OBJ) m.h
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+re: oclean all
+
+fclean: clean oclean
+
+oclean: clean
+
+clean:
+	$(RM) -f *~ *.swp $(NAME) *.o
