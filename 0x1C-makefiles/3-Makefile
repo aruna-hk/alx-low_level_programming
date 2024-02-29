@@ -13,6 +13,6 @@ re: oclean all
 fclean: clean oclean
 
 clean:
-	$(RM) -f *~ .swp school
+	$(RM) -f *~ school
 oclean:
-	$(RM) -f *.o
+	$(RM) -f main.o school.o
