@@ -1,4 +1,4 @@
-.PHONE: all clean oclean fclean
+.PHONE: all clean oclean fclean re
 CC = gcc
 NAME = school
 SRC = main.c school.c
@@ -13,6 +13,6 @@ re: oclean all
 fclean: clean oclean
 
 clean:
-	$(RM) -f *~ school
+	$(RM) -f *~ $(NAME)
 oclean:
-	$(RM) -f main.o school.o
+	$(RM) -f $(OBJ)
